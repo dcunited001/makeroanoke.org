@@ -27,16 +27,16 @@ remote_theme: "mmistakes/jekyll-theme-basically-basic@1.4.5"
 
 lang: en-US
 title: MAKE Roanoke
-email: itdoesntexistyet@makeroanoke.org
+email: makeroanoke@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  We want you make things.  In Roanoke, VA.
+  A maker initiative in Roanoke, Virginia.
 baseurl: # the optional subpath of your site, e.g. "/blog"
 url: "https://makeroanoke.org" # the base hostname & protocol for your site, e.g. http://example.com
 author:
   name: aaronm
 twitter_username:
 github_username:
-logo: # path of site logo, e.g. "/assets/images/logo.png"
+logo: "/assets/images/MAKE_Roanoke_Logo.png" # path of site logo, e.g. "/assets/images/logo.png"
 search: true # true, false (default)
 search_full_content: false # true, false (default)
 search_provider: lunr # lunr (default), algolia
@@ -57,9 +57,22 @@ plugins: # previsously gems
 feed:
   path: atom.xml
 
+# SASS/SCSS (CSS) settings
+sass:
+  sass_dir: _sass
+
 # Pagination - https://jekyllrb.com/docs/pagination/
 paginate: 10
 paginate_path: /page:num/
+
+collections_dir: content
+collections:
+  posts:
+    output: true
+    permalink: /posts/:year/:month/:day/:title
+  events:
+    output: true
+    permalink: /event/:year/:month/:day/:title
 
 # Exclude from processing.
 exclude:
@@ -84,6 +97,11 @@ exclude:
   - vendor/ruby/
   - /docs # ignore Basically Basic sample site
   - /example # ignore Basically Basic dev site
+
+include:
+  - content
+future: true
+timezone: America/New_York
 
 # Front Matter Defaults
 defaults:

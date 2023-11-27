@@ -1,5 +1,9 @@
 # Theme Skin
-skin: soft # default, night, plum, sea, soft, steel
+skin: default # default, night, plum, sea, soft, steel
+
+site_nav:
+  # this specifies the icon class when used on a dark surface.
+  icon_color: icon-dark
 
 # Theme Text
 t:
@@ -43,6 +47,8 @@ t:
 google_fonts:
   - name: "Fira Sans"
     weights: "400,400i,600,600i"
+  - name: "Istok Web"
+    weights: "400,400i,600,600i"
 
 # Link to specific internal pages in the navigation.
 # Create a custom list to override the default setting of including links to all
@@ -51,3 +57,4 @@ google_fonts:
 navigation_pages:
   - about.md
   - makerspace.md
+  - events.md
