@@ -1,0 +1,218 @@
+:root {
+    /* From theme  _variables.scss ================================== */
+
+    /* Breakpoint widths */
+    --mkroa-sm: #{$small};
+    --mkroa-md: #{$medium};
+    --mkroa-lg: #{$large};
+    --mkroa-xl: #{$xlarge};
+
+    /* Fluid type */
+    --mkroa-base-font-size: #{$base-font-size};
+    --mkroa-min-vw: #{$min-vw};
+    --mkroa-max-vw: #{$max-vw};
+    --mkroa-min-font-size: #{$min-font-size};
+    --mkroa-max-font-size: #{$max-font-size};
+
+    /* Calculate Modular Scale */
+    --mkroa-modular-scale-1: #{$modular-scale-1}; /* small */
+    --mkroa-modular-scale-2: #{$modular-scale-2}; /* large */
+    /* Heading 1 */
+    --mkroa-h1-min: #{$h1-min};
+    --mkroa-h1-max: #{$h1-max};
+    /* Heading 2 */
+    --mkroa-h2-min: #{$h2-min};
+    --mkroa-h2-max: #{$h2-max};
+    /* Heading 3 */
+    --mkroa-h3-min: #{$h3-min};
+    --mkroa-h3-max: #{$h3-max};
+    /* Heading 4 */
+    --mkroa-h4-min: #{$h4-min};
+    --mkroa-h4-max: #{$h4-max};
+    /* Heading 5 */
+    --mkroa-h5-min: #{$h5-min};
+    --mkroa-h5-max: #{$h5-max};
+    /* Heading 6 */
+    --mkroa-h6-min: #{$h6-min};
+    --mkroa-h6-max: #{$h6-max};
+
+    /* Base font family */
+    --mkroa-base-font-family: #{$base-font-family};
+    /* Other font families */
+    --mkroa-headline-font-family: #{$headline-font-family};
+    --mkroa-monospace-font-family: #{$monospace-font-family};
+
+    /* Colors */
+    --mkroa-base-color: #{$base-color};
+    --mkroa-text-color: #{$text-color};
+    --mkroa-accent-color: #{$accent-color};
+    --mkroa-background-color: #{$background-color};
+    --mkroa-code-background-color: #{$code-background-color};
+    --mkroa-border-color: #{$border-color};
+    --mkroa-overlay-color: #{$overlay-color};
+
+    /* Syntax highlighting (base16) colors */
+    --mkroa-base00: #{$base00};
+    --mkroa-base01: #{$base01};
+    --mkroa-base02: #{$base02};
+    --mkroa-base03: #{$base03};
+    --mkroa-base04: #{$base04};
+    --mkroa-base05: #{$base05};
+    --mkroa-base06: #{$base06};
+    --mkroa-base07: #{$base07};
+    --mkroa-base08: #{$base08};
+    --mkroa-base09: #{$base09};
+    --mkroa-base0a: #{$base0a};
+    --mkroa-base0b: #{$base0b};
+    --mkroa-base0c: #{$base0c};
+    --mkroa-base0d: #{$base0d};
+    --mkroa-base0e: #{$base0e};
+    --mkroa-base0f: #{$base0f};
+
+    /* Max-width of the main content */
+    --mkroa-main-max-width: #{$main-max-width};
+
+    /* Width of the sidebar */
+    --mkroa-sidebar-width: #{$sidebar-width};
+
+    /* Background color of the sidebar */
+    --mkroa-sidebar-background-color: #{$sidebar-background-color};
+
+    /* Intro image color overlay */
+    --mkroa-intro-image-color-overlay: #{$intro-image-color-overlay};
+
+    /* Border radius */
+    --mkroa-border-radius: #{$border-radius};
+
+    /* Global transition */
+    --mkroa-global-transition: #{$global-transition};
+
+    /* Navicon */
+    --mkroa-navicon-width: #{$navicon-width};
+    --mkroa-navicon-height: #{$navicon-height};
+    --mkroa-navicon-duration: #{$navicon-duration};
+    --mkroa-navicon-toggled-size: #{$navicon-toggled-size};
+    --mkroa-navicon-nav-bg-close: #{$navicon-nav-bg-close};
+    --mkroa-navicon-nav-bg-open: #{$navicon-nav-bg-open};
+    --mkroa-navicon-content-bg: #{$navicon-content-bg};
+
+    /* Site image */
+    --mkroa-site-image-width: #{$site-image-width};
+    --mkroa-site-image-height: #{$site-image-height};
+
+    /* theme colors ================================== */
+    // Main Primary color */
+    --color-primary-0: #{$color-primary-0};
+    --color-primary-1: #{$color-primary-1}; // $background-color
+    --color-primary-2: #{$color-primary-2};
+    --color-primary-3: #{$color-primary-3}; // $text-color
+    --color-primary-4: #{$color-primary-4};
+
+    // Main Secondary color (1) */
+    --color-secondary-1-0: #{$color-secondary-1-0}; // $base-color
+    --color-secondary-1-1: #{$color-secondary-1-1}; // $accent-color
+    --color-secondary-1-2: #{$color-secondary-1-2};
+    --color-secondary-1-3: #{$color-secondary-1-3};
+    --color-secondary-1-4: #{$color-secondary-1-4};
+
+    /* Main Secondary color (2) */
+    --color-secondary-2-0: #{$color-secondary-2-0};
+    --color-secondary-2-1: #{$color-secondary-2-1};
+    --color-secondary-2-2: #{$color-secondary-2-2};
+    --color-secondary-2-3: #{$color-secondary-2-3};
+    --color-secondary-2-4: #{$color-secondary-2-4};
+
+    //---------------------------------------------
+    // As RGBA codes, if transitioning to CSS3
+
+    --rgba-primary-0: #{$rgba-primary-0}; // Main Primary color */
+    --rgba-primary-1: #{$rgba-primary-1};
+    --rgba-primary-2: #{$rgba-primary-2};
+    --rgba-primary-3: #{$rgba-primary-3};
+    --rgba-primary-4: #{$rgba-primary-4};
+
+    --rgba-secondary-1-0: #{$rgba-secondary-1-0}; // Main Secondary color (1) */
+    --rgba-secondary-1-1: #{$rgba-secondary-1-1};
+    --rgba-secondary-1-2: #{$rgba-secondary-1-2};
+    --rgba-secondary-1-3: #{$rgba-secondary-1-3};
+    --rgba-secondary-1-4: #{$rgba-secondary-1-4};
+
+    --rgba-secondary-2-0: #{$rgba-secondary-2-0}; // Main Secondary color (2) */
+    --rgba-secondary-2-1: #{$rgba-secondary-2-1};
+    --rgba-secondary-2-2: #{$rgba-secondary-2-2};
+    --rgba-secondary-2-3: #{$rgba-secondary-2-3};
+    --rgba-secondary-2-4: #{$rgba-secondary-2-4};
+
+    // Generated by Paletton.com © 2002-2014 */
+    // http://paletton.com */
+    //=============================================
+
+    //=============================================
+    // Basically Basic Theme Colors
+
+    /* When this _default.scss theme file is parsed, SCSS overrides the original
+   values set by basically basic */
+
+    /* in basically-basic, $base-color sets border-color, overlay-color and the
+   screen reader background. it also sets the sidebar link colors. */
+
+    /* These are main color variables intended for customization.  Most other values
+  are dependent on them, until we override them */
+    --base-color: #{$base-color};
+    --text-color: #{$text-color};
+    --accent-color: #{$accent-color};
+    --background-color: #{$background-color};
+    --code-background-color: #{$code-background-color};
+    --border-color: #{$border-color};
+    --overlay-color: #{$overlay-color};
+
+    /* These are further customizations to variables that would otherwise be
+   dependent on those above. */
+    --sidebar-background-color: #{$sidebar-background-color};
+
+    //---------------------------------------------
+    // Icon Colors
+
+    // In _sass/makeroanoke/icons.scss, the original icon colors can be overridden.
+    // An additional .icon-dark class is generated which lightens the colors by 40%.
+    // The icon classes can be further customized at the end of that file by
+    // reopening the SCSS classes.
+
+    //---------------------------------------------
+    // Syntax highlighting (base16) colors
+    --base00: #{$base00};
+    --base01: #{$base01};
+    --base02: #{$base02};
+    --base03: #{$base03};
+    --base04: #{$base04};
+    --base05: #{$base05};
+    --base06: #{$base06};
+    --base07: #{$base07};
+    --base08: #{$base08};
+    --base09: #{$base09};
+    --base0a: #{$base0a};
+    --base0b: #{$base0b};
+    --base0c: #{$base0c};
+    --base0d: #{$base0d};
+    --base0e: #{$base0e};
+    --base0f: #{$base0f};
+
+    /* custom variables ================================== */
+    --mkroa-sm-masthead: 10vh;
+    --mkroa-md-masthead: 8vh;
+    --mkroa-lg-masthead: 8vh;
+
+    --mkroa-sm-menu: 10vh;
+    --mkroa-md-menu: 10vh;
+    --mkroa-lg-menu: 10vh;
+
+    --mkroa-sm-intro: 8vh;
+    --mkroa-md-intro: 10vh;
+    --mkroa-lg-intro: 10vh;
+
+    /*
+    --mkroa-sm-card-slider-px: 200px;
+    --mkroa-md-card-slider-px: 20vh;
+    --mkroa-lg-card-slider-px: 20vh;
+   */
+}
