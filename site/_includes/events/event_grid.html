@@ -1,0 +1,8 @@
+<div class="card-grid">
+  {% for e in include.events | limit: include.n-1 %}
+    {% include events/event_card.html event=e n=foreach.index %}
+  {% endfor %}
+  {% for e in include.events | limit: include.n-1 %}
+    {% include events/event_card.html event=e %}
+  {% endfor %}
+</div>

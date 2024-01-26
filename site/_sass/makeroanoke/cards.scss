@@ -1,0 +1,196 @@
+/* feature/professional/schedule */
+/* https://codepen.io/havardob/pen/PoJapGX */
+
+/* looseleaf paper */
+/* https://codepen.io/t_afif/pen/JjyBWqG */
+
+/* grid using inline-flex */
+/* https://codepen.io/halilcan/pen/BMRLdo */
+
+:root {
+
+    --card-grid-sm: 25vh;
+    --card-grid-md: 20vh;
+    --card-grid-lg: 20vh;
+
+    --legible-sm: 5vh;
+    --legible-md: 4vh;
+    --legible-lg: 2.5vh;
+
+    --card-border-radius: 0.5em;
+
+    --card-grid-border-color: color-mix(
+        in srgb,
+        var(--mkroa-border-color) 40%,
+        white
+    );
+    --card-grid-background-color: color-mix(
+        in srgb,
+        var(--mkroa-text-color) 40%,
+        white
+    );
+}
+
+.card-grid {
+    display: grid;
+    background-color: var(--card-grid-background-color);
+    margin: 0.5rem;
+    border-color: var(--card-grid-border-color);
+    border-radius: var(--card-border-radius);
+
+    grid-auto-flow: row;
+    align-items: center;
+    justify-items: stretch;
+}
+.card {
+    background-color: white;
+    margin: 0.5rem;
+    border-radius: inherit;
+}
+
+.card-header {
+    background-color: lightgrey;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.card-headline {
+    display: inline-flex;
+}
+
+.card-subhead {
+
+}
+
+.card-indicators {
+    display: inline-flex;
+}
+
+.card-body {
+    padding: 0.2rem;
+}
+
+.card-footer {
+}
+
+.card-read-time {
+}
+
+.card-read-more {
+}
+
+@media screen and (min-width: $small) {
+    :root {
+        --card-legible: 1.5em;
+    }
+
+    .card-grid {
+        min-height: var(--card-grid-sm);
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    .card-header {
+        /* min-height: var(--card-legible); */
+        height: var(--card-legible);
+        line-height: var(--card-legible);
+        font-size: calc(var(--card-legible) * 0.9);
+        padding: calc(var(--card-legible) * 0.1);
+    }
+
+    .card-subhead {
+
+    }
+    .card-grid .card:first-child {
+        // grid-area: 1 / 2;
+    }
+    .card {
+        /* width: 80vi; */
+        /* grid-area: span 2 ; */
+    }
+    .card-grid .card:last-child {
+        // grid-area: -2 / -1;
+    }
+    .card-body {
+        background-color: lightpink;
+    }
+}
+
+@media screen and (min-width: $medium) {
+    :root {
+        --card-legible: 1.2em;
+    }
+
+    .card-grid {
+        min-height: var(--card-grid-md);
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .card-header {
+        /* min-height: var(--card-legible); */
+        height: var(--card-legible);
+        line-height: var(--card-legible);
+        font-size: calc(var(--card-legible) * 0.9);
+        padding: calc(var(--card-legible) * 0.1);
+    }
+    .card-grid .card:first-child {
+        grid-area: 1 / 1;
+    }
+    .card-grid .card:nth-child(2) {
+        grid-area: span 2;
+    }
+    .card-grid .card:nth-child(3) {
+        grid-area: span 2;
+    }
+    .card-grid .card:last-child {
+        grid-area: 2/2;
+    }
+    // .card {
+    //     /* width: 30vi; */
+    // }
+    // .card-grid .card:first-child {
+    //     grid-area: 1 / 1;
+    // }
+    // .card-grid .card:last-child {
+    //     grid-area: -1 / span -1;
+    // }
+    .card-body {
+        background-color: lightblue;
+    }
+}
+
+@media screen and (min-width: $large) {
+    :root {
+        --card-legible: 1.2em;
+    }
+
+    .card-grid {
+        min-height: var(--card-grid-lg);
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .card-header {
+        /* min-height: var(--card-legible); */
+        height: var(--card-legible);
+        line-height: var(--card-legible);
+        font-size: calc(var(--card-legible) * 0.9);
+        padding: calc(var(--card-legible) * 0.1);
+    }
+    .card-grid .card:first-child {
+        grid-area: 1 / 1;
+    }
+    .card-grid .card:nth-child(2) {
+        grid-area: span 2;
+    }
+    .card-grid .card:nth-child(3) {
+        grid-area: span 2;
+    }
+    .card-grid .card:last-child {
+        grid-area: 2/2;
+    }
+    .card {
+        width: 30vi;
+    }
+    .card-body {
+        background-color: lightyellow;
+    }
+}
