@@ -1,0 +1,69 @@
+:root {
+    --newsletter-banner-background-color: var(--color-primary-0);
+    --newsletter-banner-color: var(--color-secondary-1-2);
+    --newsletter-banner-border-color: var(--color-primary-1);
+    // --newsletter-line-height: 2.5vh;
+    --newsletter-line-height: 1.5em;
+}
+
+.newsletter-banner {
+    display: flex;
+    padding: 0.5rem;
+    margin: auto 0.5em;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: var(--newsletter-banner-background-color);
+    color: var(--newsletter-banner-color);
+    border-radius: var(--mkroa-border-radius);
+    border: 3px solid var(--newsletter-banner-border-color);
+}
+
+.newsletter-banner-text {
+    line-height: var(--newsletter-line-height);
+    font-size: calc(0.9 * var(--newsletter-line-height));
+}
+
+.newsletter-banner form {
+    display: inline-flex;
+    // margin-left: auto;
+    flex-basis: auto;
+}
+
+.newsletter-banner form input[type="text"] {
+    // display: inline-flex;
+    margin-left: 1rem;
+}
+
+.newsletter-banner form button {
+    // display: inline-flex;
+    margin-left: 1rem;
+    border-radius: var(--mkroa-border-radius);
+}
+
+// button goes off-screen for Galaxy7
+@media screen and (max-width: $small) {
+    :root {
+        --newsletter-line-height: 1.3em;
+    }
+
+    .newsletter-banner-text {
+        // margin-left: auto;
+        // margin-right: auto;
+        flex-grow: 1;
+    }
+
+    .newsletter-banner form {
+        // display: inline-flex;
+        // margin-left: 1rem;
+        flex-grow: 1;
+        margin: 1vh;
+    }
+
+    .newsletter-banner form input[type="text"] {
+        // display: inline-flex;
+        margin-left: 1rem;
+        flex-grow: 1;
+        width: 70%;
+    }
+}

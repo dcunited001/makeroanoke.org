@@ -1,9 +1,14 @@
---- 
---- 
+---
+---
 
 // This file is used to generate the makeroanoke.css file that can be
-// used in the static website by importing the SCSS file from our _sass 
+// used in the static website by importing the SCSS file from our _sass
 // folder.
 
 @import "makeroanoke";
-@import "makeroanoke/icons";
+
+/* can't use --css-variables for @media queries and
+   also can't use variables across main.scss boundaries */
+@import "makeroanoke/breakpoints";
+@import "makeroanoke/newsletter";
+@import "makeroanoke/cards";

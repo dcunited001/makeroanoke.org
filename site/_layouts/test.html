@@ -1,0 +1,27 @@
+---
+layout: default
+---
+{% include page-intro.html %}
+
+<!-- <link rel="stylesheet" href="/assets/stylesheets/color.css" type="text/css" media="screen" /> -->
+<!-- <link rel="stylesheet" href="/assets/stylesheets/newsletter.css" type="text/css" media="screen" /> -->
+
+<div class="card"></div>
+
+{% assign current_events = site.events | where_exp: 'event', 'event.date >= site.time' %}
+
+<main id="main" class="TEST-CONTENT" aria-label="Content">
+  {% include newsletter_banner.html %}
+
+  {% include events/event_grid.html n=3 events=current_events %}
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">{{ content }}</div>
+      {% if site.disqus.shortname %}
+        {% include disqus_comments.html %}
+      {% endif %}
+
+      <h3>← Back to <a href="/events/">events</a></h3>
+    </article>
+  </div>
+</main>

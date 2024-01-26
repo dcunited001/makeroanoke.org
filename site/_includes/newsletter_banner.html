@@ -1,0 +1,15 @@
+<div class="newsletter-banner">
+  <div class="newsletter-banner-text">Sign up for the newsletter</div>
+  <form action="" id="newsletter-form">
+    <input type="text" name="newsletter-email" placeholder="Enter email">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<script type="text/javascript">
+  let nlForm = document.getElementById('newsletter-form');
+  nlForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(e);
+  });
+</script>
