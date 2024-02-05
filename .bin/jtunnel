@@ -1,0 +1,81 @@
+#!/bin/bash
+
+_env_file=$(pwd)/.env
+while getopts :p:P:e:f OPT; do
+    case $OPT in
+        p|+p)
+            _webp="$OPTARG"
+            ;;
+        P|+P)
+            _livep="$OPTARG"
+            ;;
+        e|+e)
+            _env_file="$OPTARG"
+            ;;
+        f|+f)
+            _ssh_fg=1
+            ;;
+        *)
+            echo "usage: ${0##*/} [+-e ARG] [+-f ARG] [+-p ARG] [+-P ARG] [--] ARGS..."
+            exit 2
+    esac
+done
+shift $(( OPTIND - 1 ))
+OPTIND=1
+
+[[ ! -f $_env_file ]] && echo "-e .env file does not exist" && exit 1
+
+[[ $# -eq 0 ]] && echo "requires host arg" && exit 1
+RHOST=$1
+shift 1
+
+# cat $_env_file
+# echo $_JEKYLL_PORT
+
+# read the .env file
+source $_env_file
+
+# wrap port-mapping in a monoid (in case we don't have a full port-mapping)
+[[ -z "$_JEKYLL_PORT" ]] && _JEKYLL_PORT=4000
+[[ -z "$_JEKYLL_LIVE_RELOAD_PORT" ]] && _JEKYLL_LIVE_RELOAD_PORT=35729
+[[ -z "$_webp" ]] && _webp=$_JEKYLL_PORT
+[[ -z "$_livep" ]] && _livep=$_JEKYLL_LIVE_RELOAD_PORT
+
+# # NOTE: below assumed I wanted the remote/local ports to have an offset.
+# # + the livereload port was based off the jekyll web port, but this requires
+# #   updating things in the .env file and elsewhere
+# # + instead, I would just like to assume that the .env file is the source of truth
+# #   and map remote/local ports 1-to-1 with that
+# # + passing -p/-P can still override this
+# # + when jekyll uses absolute_url, the port-mappings break down, so the remote
+# #   port really needs to be the same
+
+# # web: (4000 + n) => (40000) (web)
+# # livereload: (4000 + n) => (44000 + n) (live)
+# [[ -z "$_webp" ]] && _webp="$((_JEKYLL_PORT+36000))"
+# [[ -z "$_livep" ]] && _livep="$((_JEKYLL_PORT+40000))"
+# echo "_JEKYLL_PORT: $_JEKYLL_PORT"
+# echo "_JEKYLL_LIVE_RELOAD_PORT: $_JEKYLL_LIVE_RELOAD_PORT"
+
+LHOST=127.0.0.1
+_jekyll_port_remap="-R $LHOST:$_webp:$LHOST:$_JEKYLL_PORT"
+_jekyll_live_remap="-R $LHOST:$_livep:$LHOST:$_JEKYLL_LIVE_RELOAD_PORT"
+
+# echo $_jekyll_port_remap
+# echo $_jekyll_live_remap
+
+_ssh_opts="-N"
+[[ -z "$_ssh_fg" ]] && _ssh_opts="-fN"
+
+ssh $_ssh_opts $_jekyll_port_remap \
+    $_jekyll_live_remap \
+    $RHOST
+
+# TODO: this $! doesn't %work,so it's still a bit hard to kill the ssh tunnel
+# without passing -f to foreground it
+
+_ssh_pid="$!"
+echo "PID: $_ssh_pid"
+if [[ $? -eq 0 ]]; then
+    echo SSH started successfully
+fi

@@ -1,0 +1,55 @@
+* Overview
+
+* Setup
+
+The files here should be tangled, but gitignore must be added.
+
+#+begin_src gitignore :tangle .gitignore
+docker-compose.yml
+.env
+#+end_src
+
+** GNU Stow
+
+These tools should be stowable
+
+*** Stow local ignore
+
+Stow should ignore these
+
+#+begin_src stow :tangle .stow-local-ignore
+\.gitignore
+^/docker-compose\.eg\.yml
+^/\.github
+^/\.env
+#+end_src
+
+in worktree branches with bare checkout, .git links to a config in ../.bare
+
+#+begin_src stow :tangle .stow-local-ignore
+^/\.git
+#+end_src
+
+These are in the repo, but maybe should be removed, eventually
+
+#+begin_src stow :tangle .stow-local-ignore
+^/\.bin/jstart
+^/\.bin/crstart
+#+end_src
+
+#+begin_src stow :tangle .stow-local-ignore
+# =============================================
+# TO STOW:
+# ---------------------------------------------
+
+# /.bin
+# /docker-compose.yml
+# /.git
+# /.envrc (should work on any worktree)
+# /.vscode
+# /.env.eg
+
+# unsure:
+# /tmp
+
+#+end_src
