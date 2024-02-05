@@ -1,15 +1,10 @@
-# =============================================
-# TO NOT STOW:
-# ---------------------------------------------
-
-# in worktree branches with bare checkout, .git links to a config in ../.bare
-^/\.git
 \.gitignore
 ^/docker-compose\.eg\.yml
 ^/\.github
 ^/\.env
 
-# these maybe should be removed, eventually
+^/\.git
+
 ^/\.bin/jstart
 ^/\.bin/crstart
 
