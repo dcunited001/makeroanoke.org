@@ -23,7 +23,7 @@ header_pages:
 
 show_excerpts: true
 
-remote_theme: "mmistakes/jekyll-theme-basically-basic@1.4.5"
+# remote_theme: "mmistakes/jekyll-theme-basically-basic@1.4.5"
 
 lang: en-US
 title: MAKE Roanoke
@@ -49,7 +49,7 @@ algolia:
 # Build settings
 markdown: kramdown
 plugins: # previsously gems
-  - jekyll-remote-theme
+  # - jekyll-remote-theme
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
