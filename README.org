@@ -1,6 +1,148 @@
+* Tasks
+
+** TODO describe scripting functionality in tools for git worktree projects
+
++ [ ] just use =dc.gitvars= and expect that this is custom (unshared) functionality
++ [ ] expect a =.bare= checkout elsewhere on the local network to use as a
+  file-based remote
++ [ ] maybe use =ERB= templates for things like =.jekyll.env=
+
 * Overview
 
+** Old Setup
+
+The "Old Setup" section should be ignored, as using =GNU stow= would result in
+dangling links if changes to stow were not managed like =unstow= $\circ$
+=rebase= $\circ$ =stow=.
+
+#+begin_quote
+"Only a fool learns from his own mistakes. The wise man learns from the mistakes
+of others." Otto von Bismark
+#+end_quote
+
+I'm glad that I didn't need to actually try it to figure that out. Worktrees
+have already been extremely burdonsome in a similar way.
+
 * Setup
+
+** Templated files
+
+*** Envrc
+
+By extracting environment shared between worktrees in =git config=, then linking
+to the single =.envrc= in the tools branch should suffice. Either link from a
+=.envrc= in the parent directory to =tools/.envrc.eg= or create a =.envrc= in
+the worktree
+
+**** TODO doublecheck and revise .envrc
+
+*** Docker Compose
+
+**** Environment Files
+
+A =.env= file will be automatically consumed by =docker compose= if it exists,
+but an alternative file can be used with =-e $dotenv=. The format expected is in
+=.jekyll.env=.
+
+Since these files can be sourced, they are also used in some scripts, like
+=jtunnel=. Where this occurs, the =-e= argument should also work in the same
+way, but only for the =pwd=. However, just as in =docker compose= the variables
+are not exported to child processes -- for Docker, not provided to the container
+image.
+
+** Git
+
+*** Config
+
+**** .bin scripts
+
+For scripts in the =.bin= directory
+
+#+begin_example gitconfig
+[mkr]
+  chromeUserData=/data/mr/www/.config/chromium
+  tools=/data/mr/www/tools
+  mkr=/data/mr/www/tools/bin
+
+[alias]
+  
+#+end_example
+
+To run these:
+
++ Append to path (somewhere in project)
++ Or add a git alias.
++ Or a VSCode run configuration
+
+For VSCode
+
+#+begin_example json
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run tests",
+      "type": "shell",
+      "command": "",
+      "windows": {
+        "command": ".\\scripts\\test.cmd"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}
+
+#+end_example
+
+**** 
+
+* Managing Worktrees
+
+These are tools to help manage files across worktrees, esp when symlinks or
+scripts drift. 
+
+** Comparing
+
+*** Filetrees
+
+#+begin_example sh
+tree -ad -I "_site" $bare/..
+#+end_example
+
+**** Site
+
+#+begin_example sh
+# tree -aI "(_site,2023,2024)" site
+tree -aI _site -I 2023 -I 2024 site
+
+#+end_example
+
+*** Files
+
+
+With multiple similarly-named files in worktrees, this can get confusing.
+
++ I still don't have a means of quickly comparing versions of files across file
+  trees with =diff= (works by default but not when the files have different and
+  not with more than two file trees)
++ =czkrawka= can dedupe files but it's a bit heavy handed.
+
+The =tree= command can help somewhat. This will find a quoted glob pattern
+across many file trees, pruning out the subdirectories that provide no results
+
+#+begin_example sh
+alias treef='tree --prune -aP'
+#+end_example
+
+So =treef 'docker-compose*.yml'= will show you where those all are.
+
+* Old Setup
 
 The files here should be tangled, but gitignore must be added.
 

@@ -1,0 +1,2 @@
+PATH_add "$(git config --get mkr.toolsBin)"
+export CHROME_USER_DATA="$(git config --get mkr.chromeUserData)"

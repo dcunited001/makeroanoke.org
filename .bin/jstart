@@ -1,0 +1,40 @@
+#!/bin/sh
+#_path=${1:-$PWD}
+_path=$(pwd)
+
+_env_file=$(pwd)/.env
+while getopts e: OPT; do
+    case $OPT in
+        e|+e)
+            echo $OPTARG
+            _env_file="$OPTARG"
+            ;;
+        *)
+            echo "usage: ${0##*/} [+-e ARG] [--] ARGS..."
+            exit 2
+    esac
+done
+shift $(( OPTIND - 1 ))
+OPTIND=1
+
+if [ $# -gt 0 ]; then
+    _path=$_path/$1
+    shift 1
+fi
+
+[[ ! -f $_env_file ]] && echo "-e .env file does not exist" && exit 1
+
+# read the .env file
+source $_env_file
+
+# wrap port-mapping in a monoid (in case we don't have a full port-mapping)
+[[ -z "$_JEKYLL_PORT" ]] && _JEKYLL_PORT=4000
+[[ -z "$_JEKYLL_LIVE_RELOAD_PORT" ]] && _JEKYLL_LIVE_RELOAD_PORT=35729
+
+# or run: `docker compose --env-file .jekyll.env up` to change the ports
+_command="bundle exec jekyll serve --force_polling -H 0.0.0.0 -P 4000 --livereload"
+_image=bretfisher/jekyll-serve:alpine
+docker run -it --rm \
+       -p $_JEKYLL_PORT:4000 -p $_JEKYLL_LIVE_RELOAD_PORT:35729 \
+       -v "$_path:/site" $_image \
+       $_command $@

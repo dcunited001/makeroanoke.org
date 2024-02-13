@@ -1,0 +1,36 @@
+#!/bin/sh
+
+_env_file=$(pwd)/.env
+while getopts e: OPT; do
+    case $OPT in
+        e|+e)
+            echo $OPTARG
+            _env_file="$OPTARG"
+            ;;
+        *)
+            echo "usage: ${0##*/} [+-e ARG] [--] ARGS..."
+            exit 2
+    esac
+done
+shift $(( OPTIND - 1 ))
+OPTIND=1
+
+[[ ! -f $_env_file ]] && echo "-e .env file does not exist" && exit 1
+
+# read the .env file
+source $_env_file
+
+[[ -z "$_JEKYLL_PORT" ]] && _JEKYLL_PORT=4000
+[[ -z "$_JEKYLL_LIVE_RELOAD_PORT" ]] && _JEKYLL_LIVE_RELOAD_PORT=35729
+
+url="http://0.0.0.0:${_JEKYLL_PORT}"
+
+cr_window_name=makeroanoke
+cr_app_id=makeroanoke
+cr_class_name=makeroanoke
+
+# TODO: disown works on guix with flatpak, without nohup, still outputs to term
+chromium --app-id=$_cr_app_id \
+      --class=$_cr_class_name \
+      --user-data-dir=$CHROME_USER_DATA \
+      $url 2>&1 >/dev/null & disown

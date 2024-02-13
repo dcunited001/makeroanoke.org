@@ -1,7 +1,7 @@
 #!/bin/bash
 
 _env_file=$(pwd)/.env
-while getopts :p:P:e:f OPT; do
+while getopts p:P:e:f: OPT; do
     case $OPT in
         p|+p)
             _webp="$OPTARG"
