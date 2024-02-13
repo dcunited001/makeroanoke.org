@@ -34,7 +34,8 @@ source $_env_file
 # or run: `docker compose --env-file .jekyll.env up` to change the ports
 _command="bundle exec jekyll serve --force_polling -H 0.0.0.0 -P 4000 --livereload"
 _image=bretfisher/jekyll-serve:alpine
+_volume="$_path:/site"
+
 docker run -it --rm \
-       -p $_JEKYLL_PORT:4000 -p $_JEKYLL_LIVE_RELOAD_PORT:35729 \
-       -v "$_path:/site" $_image \
-       $_command $@
+       -p "$_JEKYLL_PORT:4000" -p "$_JEKYLL_LIVE_RELOAD_PORT:35729" \
+       -v "$_volume" "$_image" $_command $@
