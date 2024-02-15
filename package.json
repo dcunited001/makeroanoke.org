@@ -1,7 +1,22 @@
 {
-  "name": "astro",
+  "name": "makeroanoke.org",
   "type": "module",
   "version": "0.0.1",
+  "description": "Establishing a Makerspace in Roanoke, VA.",
+  "homepage": "https://makeroanoke.org",
+  "license": "GPL-3.0-only",
+  "author": {
+    "name": "MAKE Roanoke"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/makeroanoke/makeroanoke.org"
+  },
+  "keywords": [
+    "maker",
+    "makerspace",
+    "astro"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
