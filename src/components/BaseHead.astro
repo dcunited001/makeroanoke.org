@@ -2,6 +2,10 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import GoogleFonts from '@/components/GoogleFonts.astro';
+
+// TODO: check the social URLs below, the image can't be relative to most
+import { url } from '../lib/data';
 
 interface Props {
 	title: string;
@@ -19,10 +23,6 @@ const { title, description, image = '/img/posts/placeholder-1.jpg' } = Astro.pro
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
-
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -48,3 +48,5 @@ const { title, description, image = '/img/posts/placeholder-1.jpg' } = Astro.pro
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<GoogleFonts/>

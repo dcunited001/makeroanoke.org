@@ -6,16 +6,30 @@ const { title, description } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <h1>Flowbite</h1>
+  <h2>Astro</h2>
 
-  <table>
-    <tr>
-      <td>url("test/url")</td>
-      <td>{url("test/url")}</td>
-    </tr>
-    <tr>
-      <td>asset("test/asset.jpg")</td>
-      <td>{asset("test/asset.jpg")}</td>
-    </tr>
-  </table>
+  Helpers in <code>../lib/data.ts</code>
+
+  <div class="m-6 border border-gray-100">
+    <dl class="divide-y">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">url("test/url")</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+          {url("test/url")}
+        </dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">asset("test/asset.jpg")</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+          {asset("test/asset.jpg")}
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  These <code>dl</code> blocks could be refactored into components.
+
+  <h2>Flowbite</h2>
+
 </Layout>
