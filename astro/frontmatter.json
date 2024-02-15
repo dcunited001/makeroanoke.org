@@ -1,8 +1,9 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "astro",
-  "frontMatter.preview.host": "http://localhost:4321",
-  "frontMatter.content.publicFolder": "astro/public",
+  "frontMatter.framework.startCommand": "cd astro && npm run dev -- --site 'http://127.0.0.1:4321' --host '127.0.0.1'",
+  "frontMatter.preview.host": "http://127.0.0.1:4321",
+  "frontMatter.content.publicFolder": "public",
   "frontMatter.content.pageFolders": [
     {
       "title": "posts",
@@ -13,7 +14,7 @@
     {
       "name": "default",
       "pageBundle": false,
-      "previewPath": "'blog'",
+      "previewPath": "'posts'",
       "filePrefix": null,
       "clearEmpty": true,
       "fields": [
