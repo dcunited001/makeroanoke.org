@@ -21,7 +21,7 @@ const { title, description, image = '/img/posts/placeholder-1.jpg' } = Astro.pro
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href={ url('favicon.svg') } />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
@@ -33,7 +33,7 @@ const { title, description, image = '/img/posts/placeholder-1.jpg' } = Astro.pro
 <meta name="description" content={description} />
 
 <!-- Site Map -->
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="sitemap" href={ url('sitemap-index.xml') } />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
