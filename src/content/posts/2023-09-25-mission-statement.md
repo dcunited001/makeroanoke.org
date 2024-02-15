@@ -3,7 +3,7 @@ title:  "Mission Statement"
 description: "MAKE Roanoke exists to promote knowledge, skill, and creativity in science, technology, crafts, and the arts"
 
 pubDate: "2023-09-25 12:00:00 -0400"
-categories: policy
+category: policy
 tags:
   - purpose
   - bylaws

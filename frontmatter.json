@@ -41,6 +41,19 @@
           "name": "heroImage",
           "type": "image",
           "isPreviewImage": true
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags",
+          "singleValueAsString": true
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "type": "categories",
+          "taxonomyLimit": 1,
+          "singleValueAsString": true
         }
       ]
     }

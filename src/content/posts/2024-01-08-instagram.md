@@ -3,7 +3,7 @@ title:  "Announcing Our Instagram Account"
 description: Follow us on Instagram at @make_roanoke
 
 pubDate: "2024-01-08 19:56:08 -0400"
-categories: accouncements
+category: announcements
 tags: 
   - social
   - identity

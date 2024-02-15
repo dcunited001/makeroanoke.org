@@ -3,7 +3,7 @@ title:  "Introducing MAKE Roanoke!"
 description: I'd like to introduce our official name!
 
 pubDate: "2023-09-12 19:56:08 -0400"
-categories: announcements
+category: announcements
 tags: 
   - identity
 

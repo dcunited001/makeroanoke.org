@@ -6,7 +6,7 @@ description: Join us at the South County Library on February 22nd at 6:00 PM.
 pubDate:   "2024-01-31 0:00:00 -0400"
 location: South County Library - https://maps.app.goo.gl/wRVtCgkj5tPcuC4a7
 
-categories: announcements
+category: announcements
 tags: 
   - community
   - events
