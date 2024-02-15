@@ -7,7 +7,7 @@ categories: membership
 tags:
 
 # permalink: /membership/2024/01/13/general_poll.html
-heroImage: '/post-placeholder-3.jpg'
+heroImage: '/img/posts/placeholder-3.jpg'
 ---
 
 Hey there, Roanoke! We're bursting with excitement about the incredible response

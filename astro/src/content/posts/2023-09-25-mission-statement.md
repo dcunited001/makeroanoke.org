@@ -8,7 +8,7 @@ tags:
   - purpose
   - bylaws
 
-heroImage: '/post-placeholder-2.jpg'
+heroImage: '/img/posts/placeholder-2.jpg'
 ---
 
 Our fledgling group put our heads together, and brainstormed a set of values.

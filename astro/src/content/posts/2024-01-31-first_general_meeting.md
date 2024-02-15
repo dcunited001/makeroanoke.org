@@ -1,5 +1,5 @@
 ---
-title:  "First Public Meeting: February 22, 2024"
+title:  "First Public Meeting"
 description: Join us at the South County Library on February 22nd at 6:00 PM. 
 
 # pubDate:   Jan 31 2024
@@ -11,7 +11,7 @@ tags:
   - community
   - events
 
-heroImage: '/post-placeholder-1.jpg'
+heroImage: '/img/posts/placeholder-1.jpg'
 ---
 
 Attention, Roanoke Makers! Calling all tinkererers, creators, and DIY dreamers!

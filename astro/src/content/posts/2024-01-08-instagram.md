@@ -10,7 +10,7 @@ tags:
 
 # permalink: /instagram/2024/01/08/instagram.html
 
-heroImage: '/post-placeholder-3.jpg'
+heroImage: '/img/posts/placeholder-3.jpg'
 ---
 
 Roanoke, there's a storm brewing...a storm of creativity, that is. It's sweeping

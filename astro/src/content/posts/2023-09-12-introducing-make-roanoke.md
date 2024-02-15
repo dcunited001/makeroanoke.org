@@ -9,7 +9,7 @@ tags:
 
 # permalink: /identity/2023/09/12/introducing-make-roanoke.html
 
-heroImage: '/post-placeholder-4.jpg'
+heroImage: '/img/posts/placeholder-4.jpg'
 ---
 
 I'd like to introduce our official name! 
