@@ -1,9 +1,14 @@
 ---
-layout: post
 title:  "Mission Statement"
-date:   2023-09-25 12:00:00 -0400
-categories: policy purpose bylaws
-permalink: /policy/purpose/bylaws/2023/09/25/mission-statement.html
+description: "MAKE Roanoke exists to promote knowledge, skill, and creativity in science, technology, crafts, and the arts"
+
+pubDate: "2023-09-25 12:00:00 -0400"
+categories: policy
+tags:
+  - purpose
+  - bylaws
+
+heroImage: '/post-placeholder-2.jpg'
 ---
 
 Our fledgling group put our heads together, and brainstormed a set of values.

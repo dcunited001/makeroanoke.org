@@ -1,9 +1,15 @@
 ---
-layout: post
 title:  "Introducing MAKE Roanoke!"
-date:   2023-09-12 19:56:08 -0400
-categories: identity
-permalink: /identity/2023/09/12/introducing-make-roanoke.html
+description: I'd like to introduce our official name!
+
+pubDate: "2023-09-12 19:56:08 -0400"
+categories: announcements
+tags: 
+  - identity
+
+# permalink: /identity/2023/09/12/introducing-make-roanoke.html
+
+heroImage: '/post-placeholder-4.jpg'
 ---
 
 I'd like to introduce our official name! 
