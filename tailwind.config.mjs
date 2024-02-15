@@ -6,7 +6,10 @@ export default {
   ],
 	theme: {
 		extend: {
-
+      textDecoration: ['active'],
+      transitionProperty: {
+        width: 'width'
+      },
 			fontFamily: {
 				sans: [
           'Fira Sans',
