@@ -1,20 +1,20 @@
 import { defineConfig } from 'astro/config';
+
+// docs: https://astro.build/config
+
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-
 import tailwind from "@astrojs/tailwind";
 
-// let site;
-// if (process.env["DEV"]) {
-//   site = "http://0.0.0.0:4321";
-// } else {
-//   site = "https://makeroanoke.org";
-// }
+const ASTRO_PORT = 4321;
 
-// console.log(site);
+// https://docs.astro.build/en/reference/cli-reference/#astro-telemetry
+// TODO: disable telemetry
 
-// https://astro.build/config
+// NOTE: Astro CLI flags override site
 export default defineConfig({
-  site: 'https://example.com',
+	site: process.env.CI
+		? 'https://makeroanoke.org'
+		: `http://localhost:${ASTRO_PORT}`,
   integrations: [mdx(), sitemap(), tailwind()]
 });
