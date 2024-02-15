@@ -5,3 +5,5 @@ export const SITE_TITLE = "MAKE Roanoke";
 export const SITE_DESCRIPTION = "Welcome to my website!";
 
 export const COPYRIGHT = "MAKE Roanoke";
+
+export const REMOTE_ASSETS_BASE_URL = `${import.meta.env.SITE}${import.meta.env.BASE_URL}`;
