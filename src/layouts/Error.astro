@@ -1,0 +1,15 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+
+const { title, description, errorCode } = Astro.props;
+// const errorCode = Astro.props.frontmatter.errorCode;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <slot/>
+  </body>
+</html>

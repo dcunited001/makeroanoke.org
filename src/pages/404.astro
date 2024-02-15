@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Error.astro';
+
+const title = "404";
+const description = "Page not found";
+const errorCode = 404
+---
+
+<Layout title={title} description={description} errorCode={errorCode}>
+  <h1>{errorCode}</h1>
+  <p><strong>Page not found :(</strong></p>
+  <p>The requested page could not be found.</p>
+</Layout>
