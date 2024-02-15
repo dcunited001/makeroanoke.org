@@ -3,3 +3,5 @@
 
 export const SITE_TITLE = "MAKE Roanoke";
 export const SITE_DESCRIPTION = "Welcome to my website!";
+
+export const COPYRIGHT = "MAKE Roanoke";
