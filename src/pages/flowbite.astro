@@ -2,13 +2,19 @@
 import Layout from '../layouts/Base.astro';
 import { url, asset } from '../lib/data.ts';
 
+import Carousel from '@/components/Carousel.astro'
+
 const { title, description } = Astro.props;
+
+const carouselImages = Array.from({ length: 5 }).map((_,i) =>
+  `img/posts/placeholder-${i+1}.jpg`
+);
 ---
 
 <Layout title={title} description={description}>
   <h2>Astro</h2>
 
-  Helpers in <code>../lib/data.ts</code>
+  Helpers in <code>../lib/data.ts</code> as <code>dl</code> blocks.
 
   <div class="m-6 border border-gray-100">
     <dl class="divide-y">
@@ -28,8 +34,10 @@ const { title, description } = Astro.props;
     </dl>
   </div>
 
-  These <code>dl</code> blocks could be refactored into components.
-
   <h2>Flowbite</h2>
+
+  <h3>Carousel</h3>
+
+  <Carousel images={carouselImages}/>
 
 </Layout>
