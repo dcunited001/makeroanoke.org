@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Base.astro';
+---
+
+<Layout
+	title="Events"
+	description="Lorem ipsum dolor sit amet"
+	pubDate={new Date('August 08 2021')}
+	heroImage="/img/placeholder-about.jpg"
+>
+
+<nav slot="subnav" class="bg-gray-50 dark:bg-gray-700">
+  <div class="max-w-screen-xl px-4 py-3 mx-auto">
+      <div class="flex items-center">
+          <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+              <li>
+                  <a href="/events/past-events" class="text-gray-900 dark:text-white hover:underline" aria-current="page">3D Printing</a>
+              </li>
+              <li>
+                  <a href="/events/workshops" class="text-gray-900 dark:text-white hover:underline">Fabrics</a>
+              </li>
+              <li>
+                  <a href="/events/" class="text-gray-900 dark:text-white hover:underline">Woodworking</a>
+              </li>
+              <li>
+                  <a href="/guilds/metal-shop" class="text-gray-900 dark:text-white hover:underline">Metal Shop</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+</Layout>
