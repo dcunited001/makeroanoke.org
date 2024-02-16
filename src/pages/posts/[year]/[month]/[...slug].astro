@@ -1,14 +1,14 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import { loadAndFormatCollection } from '../../../../../lib/utils.ts'
-import Post from '../../../../../layouts/Post.astro';
+import { loadAndFormatCollection } from '@/lib/utils.ts';
+import Post from '@/layouts/Post.astro';
 
 export async function getStaticPaths() {
   const posts = await loadAndFormatCollection('posts');
-    return posts.map((post) => ({
-      params: { year: post.year, month: post.month, day: post.day, slug: post.slug },
-      props: post,
-    }));
+  return posts.map((post) => ({
+    params: { year: post.year, month: post.month, slug: post.slug },
+    props: post,
+  }));
 }
 type Props = CollectionEntry<'posts'>;
 
