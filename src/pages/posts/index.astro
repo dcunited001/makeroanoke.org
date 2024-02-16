@@ -1,95 +1,88 @@
 ---
-import BaseHead from '@/components/BaseHead.astro';
-import Footer from '@/components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts';
+import Layout from '@/layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '@/components/FormattedDate.astro';
 import Navbar from '@/components/Navbar.astro';
 
 import PostCard from '@/components/post/Card.astro';
+import SubNavbar from '@/components/SubNavbar.astro';
+
+const pageTitle = 'Posts';
+const pageDescription = 'Articles from makers in Roanoke.';
 
 const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style is:global>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Navbar />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-               <PostCard post={post}></PostCard>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title={pageTitle} description={pageDescription}>
+  <SubNavbar slot="subnav" />
+
+  <style is:global>
+    main {
+      width: 960px;
+    }
+    ul.card-list {
+      display: flex;
+      flex-wrap: wrap;
+
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    ul.card-list li {
+      width: calc(50% - 1rem);
+      margin: 0.5rem;
+    }
+    ul.card-list li * {
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+    ul.card-list li:first-child {
+      width: 100%;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    ul.card-list li:first-child img {
+      width: 100%;
+    }
+    ul.card-list li:first-child .title {
+      font-size: 2.369rem;
+    }
+    ul.card-list li img {
+      margin-bottom: 0.5rem;
+      border-radius: 12px;
+    }
+    ul.card-list li a {
+      display: block;
+    }
+    ul.card-list li a:hover h4,
+    ul li a:hover .date {
+      color: rgb(var(--accent));
+    }
+    ul.card-list a:hover img {
+      box-shadow: var(--box-shadow);
+    }
+    @media (max-width: 720px) {
+      ul.card-list {
+        gap: 0.5em;
+      }
+      ul.card-list li {
+        width: 100%;
+        text-align: center;
+      }
+      ul.card-list li:first-child {
+        margin-bottom: 0;
+      }
+      ul.card-list li:first-child .title {
+        font-size: 1.563em;
+      }
+    }
+  </style>
+
+  <section>
+    <ul class="card-list">
+      {posts.map((post) => <PostCard post={post} />)}
+    </ul>
+  </section>
+</Layout>
