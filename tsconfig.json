@@ -3,9 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "strictNullChecks": true,
-    "plugins": [
-      { "name": "@astrojs/ts-plugin" },
-    ],
+    "plugins": [{ "name": "@astrojs/ts-plugin" }],
     "paths": {
       "@/*": ["src/*"]
     }
