@@ -1,0 +1,68 @@
+---
+import Layout from '@/layouts/Base.astro';
+import SubNavbar from '@/components/SubNavbar.astro';
+
+const aboutLinks = [
+  { href: "/about/makerspace", text: "What is a Makerspace?" },
+  { href: "/about/location", text: "Location" },
+  { href: "/about/community", text: "Community" },
+  { href: "/about/contact", text: "Contact" },
+]
+---
+
+<Layout
+  title="What is a Makerspace?"
+  description=""
+  pubDate={new Date()}
+  heroImage="/img/ai"
+>
+<SubNavbar slot="subnav" links={aboutLinks} />
+  <p>
+    A makerspace is a community-oriented workspace where people can come
+    together to create, learn, and share. Makerspaces typically have a wide
+    range of tools and equipment available for use, including 3D printers, laser
+    cutters, woodworking tools, and electronics equipment.
+  </p>
+
+  <p>
+    Makerspaces are open to people of all skill levels, from beginners to
+    experienced makers. There is often a strong focus on collaboration and
+    sharing knowledge. Makerspaces are a great place to learn new skills, work
+    on projects, and meet other people who are interested in making.
+  </p>
+
+  <h3>What can you do at a makerspace?</h3>
+
+  <p>The possibilities are endless! Here are just a few examples:</p>
+
+  <ul>
+    <li>3D print a prototype of your new product</li>
+    <li>Laser cut a custom design for a piece of furniture</li>
+    <li>Build your own robot</li>
+    <li>Learn to code</li>
+    <li>Repair a broken electronic device</li>
+    <li>Create a stop-motion animation video</li>
+    <li>Sew a new outfit</li>
+    <li>Design and build a piece of jewelry</li>
+    <li>Host a workshop to teach others a new skill</li>
+  </ul>
+  <h3>Who uses makerspaces?</h3>
+
+  <p>
+    Makerspaces are used by people of all ages and backgrounds. They are popular
+    with students, entrepreneurs, hobbyists, and professionals alike.
+    Makerspaces are a great place to learn new skills, work on projects, and
+    meet other people who are interested in making.
+  </p>
+
+  <h3>Benefits of using a makerspace</h3>
+
+  <p>There are many benefits to using a makerspace, including:</p>
+  <ul>
+    <li>Access to a wide range of tools and equipment</li>
+    <li>Opportunity to learn new skills</li>
+    <li>Collaborative environment</li>
+    <li>Sense of community</li>
+    <li>Affordable access to resources</li>
+  </ul>
+</Layout>
