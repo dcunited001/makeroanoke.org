@@ -25,9 +25,10 @@ export default defineConfig({
     sitemap(),
     tailwind(),
     icon({
+      // changing included icons requires restarting astro
       include: {
         flowbite: ['*'],
-        simple-icons: [
+        "simple-icons": [
           "github",
           "calendar",
           "email",
