@@ -5,6 +5,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
+import icon from 'astro-icon';
 
 const ASTRO_PORT = 4321;
 
@@ -12,9 +13,34 @@ const ASTRO_PORT = 4321;
 // TODO: disable telemetry
 
 // NOTE: Astro CLI flags override site
+
+// https://astro.build/config
 export default defineConfig({
-	site: process.env.CI
-		? 'https://makeroanoke.org'
-		: `http://localhost:${ASTRO_PORT}`,
-  integrations: [mdx(), sitemap(), tailwind()]
+  site: process.env.CI ? 'https://makeroanoke.org' : `http://localhost:${ASTRO_PORT}`,
+  // base: process.env.CI
+  //   ? '/site_root' : undefined,
+
+  integrations: [
+    mdx(),
+    sitemap(),
+    tailwind(),
+    icon({
+      include: {
+        flowbite: ['*'],
+        simple-icons: [
+          "github",
+          "calendar",
+          "email",
+          "facebook",
+          "instagram",
+          "linkedin",
+          "pdf",
+          "pinterest",
+          "rss",
+          "twitter",
+          "youtube",
+          "stopwatch"],
+      }
+    })
+  ]
 });

@@ -34,6 +34,7 @@
     "@astrojs/ts-plugin": "^1.5.2",
     "@iconify/types": "^2.0.0",
     "astro": "^4.3.7",
+    "astro-icon": "^1.1.0",
     "flowbite": "^2.3.0",
     "flowbite-typography": "^1.0.3",
     "tailwind-scrollbar": "^3.1.0",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@iconify-json/flowbite": "^1.1.1",
+    "@iconify-json/simple-icons": "^1.1.91",
     "@iconify/tools": "^4.0.2",
     "prettier-plugin-astro": "^0.13.0"
   }
