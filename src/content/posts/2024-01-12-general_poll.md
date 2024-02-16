@@ -1,8 +1,9 @@
 ---
+author: david-conner
 title:  Calling all Roanoke makers!
 description: Let's spark the flame together at our first public meeting!
 
-pubDate: "2024-01-12 23:42:08 -0400"
+pubDate: 2024-01-12 23:42:08 -0400
 category: membership
 tags:
 

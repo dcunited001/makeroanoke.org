@@ -1,4 +1,25 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
+
+const people = defineCollection({
+  type: 'data',
+  schema: z.object({
+    //
+    name: z.string(),
+    headshot: z.string().optional()
+  })
+});
+
+// TODO: object type
+const roles = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string().uuid(),
+    name: z.string()
+  })
+});
+
+
+
 
 const posts = defineCollection({
 	type: "content",
@@ -10,7 +31,43 @@ const posts = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+    author: reference('people')
 	}),
 });
 
-export const collections = { posts };
+const events = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    heroImage: z.string().optional(),
+    onlineUrl: z.string().optional(),
+    locationUrl: z.string().optional(),
+    author: reference('authors')
+  })
+})
+
+const tags = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string()
+  })
+});
+
+const categories = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string()
+  })
+});
+
+export const collections = {
+  people,
+  roles,
+  posts,
+  events,
+  tags,
+  categories,
+};
