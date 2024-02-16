@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@iconify-json/flowbite": "^1.1.1",
+    "@iconify-json/mdi": "^1.1.64",
     "@iconify-json/simple-icons": "^1.1.91",
     "@iconify/tools": "^4.0.2",
     "prettier-plugin-astro": "^0.13.0"

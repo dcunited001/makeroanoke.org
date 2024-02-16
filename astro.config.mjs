@@ -1,3 +1,4 @@
+// -*- mode: javascript -*-
 import { defineConfig } from 'astro/config';
 
 // docs: https://astro.build/config
@@ -28,6 +29,7 @@ export default defineConfig({
       // changing included icons requires restarting astro
       include: {
         flowbite: ['*'],
+        mdi: ["email-fast-outline"],
         "simple-icons": [
           "github",
           "calendar",
