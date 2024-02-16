@@ -1,11 +1,11 @@
 ---
 import pkg from '../../package.json' assert { type: 'json' };
+import GoogleFonts from '@/components/GoogleFonts.astro';
 
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 
-import GoogleFonts from '@/components/GoogleFonts.astro';
 
 // TODO: check the social URLs below, our post URLs can't place image links
 // relative to their directory
@@ -30,6 +30,16 @@ const { title, description, image = '/img/posts/placeholder-1.jpg' } = Astro.pro
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href={ url('favicon.svg') } />
 <meta name="generator" content={Astro.generator} />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YCXBYGJKZR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-YCXBYGJKZR');
+</script>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
