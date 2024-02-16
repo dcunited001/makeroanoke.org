@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Post.astro';
+import Layout from '../layouts/Base.astro';
 ---
 
 <Layout
@@ -8,6 +8,30 @@ import Layout from '../layouts/Post.astro';
 	pubDate={new Date('August 08 2021')}
 	heroImage="/img/placeholder-about.jpg"
 >
+
+<nav slot="subnav" class="bg-gray-50 dark:bg-gray-700">
+  <div class="max-w-screen-xl px-4 py-3 mx-auto">
+      <div class="flex items-center">
+          <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+              <li>
+                  <a href="/about/makerspaces" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Makerspaces</a>
+              </li>
+              <li>
+                  <a href="/about/location" class="text-gray-900 dark:text-white hover:underline">Location</a>
+              </li>
+              <li>
+                  <a href="/about/community" class="text-gray-900 dark:text-white hover:underline">Community</a>
+              </li>
+              <li>
+                  <a href="/about/contact" class="text-gray-900 dark:text-white hover:underline">Contact</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo

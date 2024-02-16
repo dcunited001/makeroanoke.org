@@ -15,7 +15,7 @@ const { images } = Astro.props
     {
       images.map((img:string, i:number) =>
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src={img} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt=`Image ${i}` />
+          <img src={img} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={`Image ${i}`} />
       </div>
       )
     }
@@ -25,7 +25,7 @@ const { images } = Astro.props
     {
       images.map((_, i:number) =>
         // let slide = `Slide ${i}`
-        <button type="button" class="w-3 h-3 rounded-full" aria-current={i == 0} aria-label=`Slide ${i}` data-carousel-slide-to={i}></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current={i == 0} aria-label={`Slide ${i}`} data-carousel-slide-to={i}></button>
       )
     }
   </div>

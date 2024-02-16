@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Base.astro';
+import SubNavbar from '@/components/SubNavbar.astro';
 import { url, asset } from '../lib/data.ts';
 
 import Carousel from '@/components/Carousel.astro'
@@ -12,6 +13,8 @@ const carouselImages = Array.from({ length: 5 }).map((_,i) =>
 ---
 
 <Layout title={title} description={description}>
+  <SubNavbar slot="subnav" />
+
   <h2>Astro</h2>
 
   Helpers in <code>../lib/data.ts</code> as <code>dl</code> blocks.
