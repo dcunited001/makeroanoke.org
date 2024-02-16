@@ -3,12 +3,12 @@ import Layout from '../layouts/Base.astro';
 import SubNavbar from '@/components/SubNavbar.astro';
 import { url, asset } from '../lib/data.ts';
 
-import Carousel from '@/components/Carousel.astro'
+import Carousel from '@/components/Carousel.astro';
 
 const { title, description } = Astro.props;
 
-const carouselImages = Array.from({ length: 5 }).map((_,i) =>
-  `img/posts/placeholder-${i+1}.jpg`
+const carouselImages = Array.from({ length: 5 }).map(
+  (_, i) => `img/posts/placeholder-${i + 1}.jpg`,
 );
 ---
 
@@ -22,16 +22,20 @@ const carouselImages = Array.from({ length: 5 }).map((_,i) =>
   <div class="m-6 border border-gray-100">
     <dl class="divide-y">
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">url("test/url")</dt>
+        <dt class="text-sm font-medium leading-6 text-gray-900">
+          url("test/url")
+        </dt>
         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-          {url("test/url")}
+          {url('test/url')}
         </dd>
       </div>
 
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm font-medium leading-6 text-gray-900">asset("test/asset.jpg")</dt>
+        <dt class="text-sm font-medium leading-6 text-gray-900">
+          asset("test/asset.jpg")
+        </dt>
         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-          {asset("test/asset.jpg")}
+          {asset('test/asset.jpg')}
         </dd>
       </div>
     </dl>
@@ -41,6 +45,5 @@ const carouselImages = Array.from({ length: 5 }).map((_,i) =>
 
   <h3>Carousel</h3>
 
-  <Carousel images={carouselImages}/>
-
+  <Carousel images={carouselImages} />
 </Layout>

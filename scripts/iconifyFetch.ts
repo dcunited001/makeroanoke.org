@@ -13,9 +13,8 @@ import * as flowbite from "@iconify-json/flowbite";
 const args = process.argv.slice(2);
 (args.length < 1) && process.exit(1);
 
+// TODO: `mkdir -p` or fail
 const outputDir = args[0];
-// TODO: mkdir -p
-// const outputDir = "src/assets/icons/flowbite";
 
 // based on https://iconify.design/docs/libraries/tools/export/svg.html
 (async () => {

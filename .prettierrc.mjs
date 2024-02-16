@@ -9,6 +9,7 @@ export default {
   overrides: [
     {
       files: '*.astro',
+      singleQuote: true,
       options: {
         parser: 'astro',
       },
