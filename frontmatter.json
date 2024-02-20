@@ -1,20 +1,68 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "astro",
-  "frontMatter.framework.startCommand": "npm run dev -- --site 'http://127.0.0.1:4321' --host '127.0.0.1'",
+  "frontMatter.framework.startCommand": "npm run dev -- --site 'http://127.0.0.1:4321' --host '127.0.0.1' --port=4321",
   "frontMatter.preview.host": "http://127.0.0.1:4321",
   "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.autoUpdateDate": false,
+  "frontMatter.dashboard.content.card.fields.title": "title",
+  "frontMatter.dashboard.content.card.fields.description": "description",
   "frontMatter.content.pageFolders": [
     {
       "title": "posts",
-      "path": "[[workspace]]/src/content/posts"
+      "path": "[[workspace]]/src/content/posts",
+      "previewPath": "'posts/'yyyy/MM",
+      "contentTypes": ["post"]
+    },
+    {
+      "title": "events",
+      "path": "[[workspace]]/src/content/events",
+      "previewPath": "'events/'yyyy/MM",
+      "contentTypes": ["event"]
+    }
+  ],
+  "frontMatter.taxonomy.fieldGroups": [
+    {
+      "id": "generalFields",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "generalMetadata",
+      "fields": [
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "type": "categories",
+          "taxonomyLimit": 1,
+          "singleValueAsString": true
+        }
+      ]
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
     {
-      "name": "default",
+      "name": "post",
       "pageBundle": false,
-      "previewPath": "'posts'",
+      "previewPath": "'posts/'yyyy/MM",
       "filePrefix": null,
       "clearEmpty": true,
       "fields": [
@@ -22,12 +70,24 @@
           "title": "Title",
           "name": "title",
           "type": "string",
-          "single": true
+          "single": true,
+          "required": true
         },
         {
           "title": "Description",
           "name": "description",
-          "type": "string"
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Author",
+          "name": "author",
+          "type": "dataFile",
+          "dataFileId": "authors",
+          "dataFileKey": "id",
+          "dataFileValue": "name",
+          "single": true,
+          "required": true
         },
         {
           "title": "Publishing date",
@@ -45,8 +105,83 @@
         {
           "title": "Tags",
           "name": "tags",
-          "type": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "type": "categories",
+          "taxonomyLimit": 1,
           "singleValueAsString": true
+        }
+      ]
+    },
+    {
+      "name": "event",
+      "pageBundle": false,
+      "previewPath": "'events/'yyyy/MM",
+      "filePrefix": null,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Author",
+          "name": "author",
+          "type": "dataFile",
+          "dataFileId": "authors",
+          "dataFileKey": "id",
+          "dataFileValue": "name",
+          "single": true,
+          "required": true
+        },
+        {
+          "title": "Event Date",
+          "name": "eventDate",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "title": "Event Start Time",
+          "name": "eventStartTime",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "title": "Event End Time",
+          "name": "eventEndTime",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "title": "Publishing date",
+          "name": "pubDate",
+          "type": "datetime",
+          "required": true,
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "heroImage",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
         },
         {
           "title": "Category",

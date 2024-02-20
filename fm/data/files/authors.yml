@@ -1,0 +1,9 @@
+- id: david-conner
+  name: David Conner
+  uuid: de74b24b-1374-40b4-8445-88861b073dac
+  headshot: img/authors/david-conner.jpg
+- id: aaron-mcphall
+  name: Aaron McPhall
+  uuid: f8b7f675-6581-4fe4-96be-73a8eaa36618
+  headshot: img/authors/aaron-mcphall.jpg
+

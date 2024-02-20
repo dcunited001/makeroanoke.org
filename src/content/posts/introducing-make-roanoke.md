@@ -1,16 +1,12 @@
 ---
-author: aaron-mcphall
-title:  "Introducing MAKE Roanoke!"
+title: Introducing MAKE Roanoke!
 description: I'd like to introduce our official name!
-
-pubDate: "2023-09-12 19:56:08 -0400"
+pubDate: 2023-09-12 19:56:08 -0400
 category: announcements
-tags: 
+tags:
   - identity
-
-# permalink: /identity/2023/09/12/introducing-make-roanoke.html
-
-heroImage: '/img/posts/placeholder-4.jpg'
+heroImage: /img/posts/placeholder-4.jpg
+author: aaron-mcphall
 ---
 
 I'd like to introduce our official name! 

@@ -1,17 +1,14 @@
 ---
-author: aaron-mcphall
-title:  "First General Meeting"
-description: ""
-
-eventDate:   2024-02-22
-eventTimeStart: "18:00"
-eventTimeEnd: "20:00"
+title: First General Meeting
+description: MAKE Roanoke's first public meeting is here
+eventStart: 2024-02-22 18:00
+eventEnd: 2024-02-22 20:00
 location: South County Library
 locationUrl: https://maps.app.goo.gl/wRVtCgkj5tPcuC4a7
-
-pubDate:   2024-01-31 12:00:00 -0400
+pubDate: 2024-01-31 12:00:00 -0400
 category: community
-tags:
+tags: null
+author: david-conner
 ---
 
 Attention, Roanoke Makers! Calling all tinkererers, creators, and DIY dreamers!

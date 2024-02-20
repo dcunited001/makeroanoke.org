@@ -1,0 +1,8 @@
+{
+  "id": "authors",
+  "type": "people",
+  "fileType": "yaml",
+  "title": "Authors",
+  "file": "[[workspace]]/fm/data/files/authors.yml",
+  "labelField": "name"
+}

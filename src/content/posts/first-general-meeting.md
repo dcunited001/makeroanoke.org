@@ -1,18 +1,14 @@
 ---
 author: aaron-mcphall
-title:  "First Public Meeting"
-description: Join us at the South County Library on February 22nd at 6:00 PM. 
-
-# pubDate:   Jan 31 2024
-pubDate:   "2024-01-31 0:00:00 -0400"
+title: First Public Meeting
+description: Join us at the South County Library on February 22nd at 6:00 PM.
+pubDate: 2024-01-31 0:00:00 -0400
 location: South County Library - https://maps.app.goo.gl/wRVtCgkj5tPcuC4a7
-
 category: announcements
-tags: 
+tags:
   - community
   - events
-
-heroImage: '/img/posts/placeholder-1.jpg'
+heroImage: /img/posts/placeholder-1.jpg
 ---
 
 Attention, Roanoke Makers! Calling all tinkererers, creators, and DIY dreamers!

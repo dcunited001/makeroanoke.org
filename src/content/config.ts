@@ -18,9 +18,6 @@ const roles = defineCollection({
   })
 });
 
-
-
-
 const posts = defineCollection({
 	type: "content",
 	// Type-check frontmatter using a schema

@@ -1,0 +1,34 @@
+    {
+      "id": "people",
+      "$schema": "https://frontmatter.codes/config/data.types.schema.json",
+      "schema": {
+        "title": "People",
+        "type": "object",
+        "required": [
+          "name",
+          "headshot"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "ID"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "uuid": {
+            "type": "string",
+            "title": "UUID"
+          },
+          "bio": {
+            "type": "string",
+            "title": "Bio"
+          },
+          "headshot": {
+            "type": "string",
+            "title": "Headshot"
+          }
+        }
+      }
+    }

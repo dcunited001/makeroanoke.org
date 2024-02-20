@@ -1,15 +1,12 @@
 ---
 author: aaron-mcphall
 title:  "2024 Raspberry Pi Jam"
-description: ""
-
-eventDate:   2024-03-02
+description: "MAKE Roanoke is partnering with Roanoke Robotics for the 2024 Raspberry Pi Jam"
+eventDate: 2024/03/02
 eventTimeStart: "10:00"
 eventTimeEnd: "13:00"
-
 location: South County Library
 locationUrl: https://maps.app.goo.gl/wRVtCgkj5tPcuC4a7
-
 pubDate:   2024-01-31 16:00:00 -0400
 category: community
 tags:
