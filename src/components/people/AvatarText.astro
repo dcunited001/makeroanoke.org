@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  person: CollectionEntry<'people'>;
+};
+
+const { person } = Astro.props;
+
+// TODO: refactor
+const avatarAlt = 'Default Avatar';
+const personName = 'Post Author';
+const contextText = 'Published 1/31/2024';
+---
+
+<div class="flex items-center gap-4">
+  <img
+    class="w-10 h-10 rounded"
+    src={person.data.headshot}
+    alt={person.data.name}
+  />
+  <div class="font-medium dark:text-white">
+    <div>{person.data.name}</div>
+    <div class="text-sm text-gray-500 dark:text-gray-400"><slot /></div>
+  </div>
+</div>

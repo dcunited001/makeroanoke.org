@@ -1,9 +1,13 @@
 import { defineCollection, reference, z } from "astro:content";
 
+const tag = z.string();
+const tags = z.array(tag);
+const category = z.string();
+const categories = z.array(category);
+
 const people = defineCollection({
   type: 'data',
   schema: z.object({
-    //
     name: z.string(),
     headshot: z.string().optional()
   })
@@ -28,7 +32,9 @@ const posts = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
-    author: reference('people')
+    author: reference('people'),
+    tags: tags.nullable().optional(),
+    category: category.optional()
 	}),
 });
 
@@ -42,29 +48,21 @@ const events = defineCollection({
     heroImage: z.string().optional(),
     onlineUrl: z.string().optional(),
     locationUrl: z.string().optional(),
-    author: reference('authors')
+    author: reference('people'),
+    tags: tags.nullable().optional(),
+    category: category.optional()
   })
 })
 
-const tags = defineCollection({
-  type: "data",
-  schema: z.object({
-    name: z.string()
-  })
-});
 
-const categories = defineCollection({
-  type: "data",
-  schema: z.object({
-    name: z.string()
-  })
-});
 
 export const collections = {
   people,
   roles,
   posts,
   events,
+  tag,
   tags,
-  categories,
+  category,
+  categories
 };

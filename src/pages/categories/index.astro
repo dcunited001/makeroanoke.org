@@ -1,0 +1,30 @@
+---
+// TODO: the usage of type "categories" is wrong
+import { categories } from '@/content/config';
+import Layout from '@/layouts/Base.astro';
+
+const allPosts = await Astro.glob('../../content/posts/*.md');
+const allEvents = await Astro.glob('../../content/events/*.md');
+
+const postCategories: categories = allPosts
+  .map((post) => post.frontmatter.category)
+  .flat();
+const eventCategories: categories = allEvents
+  .map((event) => event.frontmatter.category)
+  .flat();
+
+const uniqCategories = [
+  ...new Set(postCategories.concat(eventCategories)),
+].sort();
+
+const pageTitle = 'Tag Index';
+
+// TODO: interface is unused
+type Props = {
+  categories: categories;
+};
+---
+
+<Layout>
+  <div>{uniqCategories.map((tag) => <p>{tag}</p>)}</div>
+</Layout>

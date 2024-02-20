@@ -1,0 +1,15 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  person: CollectionEntry<'people'>;
+};
+
+const { person } = Astro.props;
+---
+
+<img
+  class="w-10 h-10 rounded"
+  src="/img/people/david-conner.jpg"
+  alt="Default avatar"
+/>

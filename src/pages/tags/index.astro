@@ -1,0 +1,24 @@
+---
+// TODO: the usage of type "tags" is wrong
+import { tags } from '@/content/config';
+import Layout from '@/layouts/Base.astro';
+
+const allPosts = await Astro.glob('../../content/posts/*.md');
+const allEvents = await Astro.glob('../../content/events/*.md');
+
+const postTags: tags = allPosts.map((post) => post.frontmatter.tags).flat();
+const eventTags: tags = allEvents.map((event) => event.frontmatter.tags).flat();
+
+const uniqTags: tags = [...new Set(postTags.concat(eventTags))].sort();
+
+const pageTitle = 'Tag Index';
+
+// TODO: interface is unused
+type Props = {
+  tags: tags;
+};
+---
+
+<Layout>
+  <div>{uniqTags.map((tag) => <p>{tag}</p>)}</div>
+</Layout>

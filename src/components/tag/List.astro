@@ -1,0 +1,11 @@
+---
+import { tags } from '@/content/config';
+
+interface Props {
+  tags: tags;
+}
+
+const tagsList = Astro.props.tags;
+---
+
+<div>{tagsList.map((tag) => <p>{tag}</p>)}</div>
