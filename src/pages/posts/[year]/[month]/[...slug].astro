@@ -6,7 +6,7 @@ import Post from '@/layouts/Post.astro';
 export async function getStaticPaths() {
   const posts = await loadAndFormatCollection('posts');
   return posts.map((post) => ({
-    params: { year: post.year, month: post.month, slug: post.slug },
+    params: { year: post.data.year, month: post.data.month, slug: post.slug },
     props: post,
   }));
 }

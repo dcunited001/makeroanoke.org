@@ -6,21 +6,22 @@ type Props = CollectionEntry<'posts'>;
 type Author = CollectionEntry<'people'>;
 
 const { post } = Astro.props;
-const author = await getEntry(post.data.author);
+const author: Author = await getEntry(post.data.author);
 ---
+
 <style>
-.title {
-  margin: 0;
-  color: rgb(var(--black));
-  line-height: 1;
-}
-.date {
-  margin: 0;
-  color: rgb(var(--gray));
-}
+  .title {
+    margin: 0;
+    color: rgb(var(--black));
+    line-height: 1;
+  }
+  .date {
+    margin: 0;
+    color: rgb(var(--gray));
+  }
 </style>
 <li>
-  <a href={`/posts/${post.slug}/`}>
+  <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>
     <img width={720} height={360} src={post.data.heroImage} alt="" />
     <h4 class="title">{post.data.title}</h4>
     <p class="date">

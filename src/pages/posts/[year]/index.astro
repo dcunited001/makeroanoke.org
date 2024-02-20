@@ -14,7 +14,7 @@ import { Debug } from 'astro:components';
 export async function getStaticPaths() {
   const posts = await loadAndFormatCollection('posts');
   return posts.map((post) => ({
-    params: { year: post.year, month: post.month, slug: post.slug },
+    params: { year: post.data.year, month: post.data.month, slug: post.slug },
     props: post,
   }));
 }
@@ -24,14 +24,13 @@ const pageDescription = 'Articles from makers in Roanoke.';
 const params = Astro.params;
 
 // TODO: refactor repetition for year/month (also in utils.js)
-const posts = (await getCollection('posts')).filter(
-  (p) => p.data.pubDate.getFullYear().toString() == params.year).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-
+const posts = (await getCollection('posts'))
+  .filter((p) => p.data.pubDate.getFullYear().toString() == params.year)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
+
 <Layout title={pageTitle} description={pageDescription}>
-  <SubNavbar slot="subnav" />
+  <SubNavbar slot="subnav" links={[]} />
 
   <style is:global>
     main {

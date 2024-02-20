@@ -1,4 +1,6 @@
 ---
+import { loadAndFormatCollection } from '@/lib/utils.ts';
+
 import Layout from '@/layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import FormattedDate from '@/components/FormattedDate.astro';
@@ -10,13 +12,13 @@ import SubNavbar from '@/components/SubNavbar.astro';
 const pageTitle = 'Posts';
 const pageDescription = 'Articles from makers in Roanoke.';
 
-const posts = (await getCollection('posts')).sort(
+const posts = (await loadAndFormatCollection('posts')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <!-- <SubNavbar slot="subnav" links={[]} /> -->
+  <SubNavbar slot="subnav" links={[]} />
 
   <style is:global>
     main {
