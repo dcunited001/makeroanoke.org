@@ -1,16 +1,10 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
 import { loadAndFormatCollection } from '@/lib/utils.ts';
+import { getCollection } from 'astro:content';
 
-import Layout from '@/layouts/Base.astro';
-import FormattedDate from '@/components/FormattedDate.astro';
-import Navbar from '@/components/Navbar.astro';
-
-import Layout from '@/layouts/Base.astro';
 import SubNavbar from '@/components/SubNavbar.astro';
 import PostList from '@/components/post/List.astro';
-
-import { Debug } from 'astro:components';
+import Layout from '@/layouts/Base.astro';
 
 export async function getStaticPaths() {
   const posts = await loadAndFormatCollection('posts');

@@ -1,13 +1,13 @@
 ---
-import Layout from '@/layouts/Base.astro';
 import SubNavbar from '@/components/SubNavbar.astro';
+import Layout from '@/layouts/Base.astro';
 
 const aboutLinks = [
-  { href: "/about/makerspace", text: "What is a Makerspace?" },
-  { href: "/about/location", text: "Location" },
-  { href: "/about/community", text: "Community" },
-  { href: "/about/contact", text: "Contact" },
-]
+  { href: '/about/makerspace', text: 'What is a Makerspace?' },
+  { href: '/about/location', text: 'Location' },
+  { href: '/about/community', text: 'Community' },
+  { href: '/about/contact', text: 'Contact' },
+];
 ---
 
 <Layout
@@ -16,7 +16,7 @@ const aboutLinks = [
   pubDate={new Date()}
   heroImage="/img/ai"
 >
-<SubNavbar slot="subnav" links={aboutLinks} />
+  <SubNavbar slot="subnav" links={aboutLinks} />
   <p>
     A makerspace is a community-oriented workspace where people can come
     together to create, learn, and share. Makerspaces typically have a wide

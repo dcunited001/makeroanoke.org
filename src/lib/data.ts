@@ -1,4 +1,4 @@
-import { REMOTE_ASSETS_BASE_URL } from '../consts.ts';
+import { REMOTE_ASSETS_BASE_URL } from '@/consts.ts';
 
 export function url(path = '') {
   // NOTE: requires always including trailing slash

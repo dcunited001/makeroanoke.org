@@ -1,8 +1,11 @@
 ---
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
 import FormattedDate from '@/components/FormattedDate.astro';
+import AvatarText from '@/components/people/AvatarText.astro';
+import { getEntry, type CollectionEntry } from 'astro:content';
 
-type Props = CollectionEntry<'posts'>;
+type Props = {
+  post: CollectionEntry<'posts'>;
+};
 type Author = CollectionEntry<'people'>;
 
 const { post } = Astro.props;

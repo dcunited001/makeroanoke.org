@@ -1,5 +1,5 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import BaseHead from '@/components/BaseHead.astro';
 
 const { title, description, errorCode } = Astro.props;
 // const errorCode = Astro.props.frontmatter.errorCode;
@@ -10,6 +10,6 @@ const { title, description, errorCode } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body>
-    <slot/>
+    <slot />
   </body>
 </html>
