@@ -3,16 +3,21 @@ import Carousel from '@/components/Carousel.astro';
 import AvatarText from '@/components/people/AvatarText.astro';
 import Layout from '@/layouts/Base.astro';
 import { asset, url } from '@/lib/data.ts';
+import { getEntry } from 'astro:content';
 
 const { title, description } = Astro.props;
 
 const carouselImages = Array.from({ length: 5 }).map(
   (_, i) => `img/posts/placeholder-${i + 1}.jpg`,
 );
+
+const person = await getEntry('people', 'david-conner');
 ---
 
 <Layout title={title} description={description}>
-<!-- <SubNavbar slot="subnav" links={[]} /> -->
+  <!-- <SubNavbar slot="subnav" links={[]} /> -->
+
+  <AvatarText person={person} />
 
   <h2>Astro</h2>
 

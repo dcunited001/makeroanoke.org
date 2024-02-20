@@ -7,6 +7,7 @@ type Props = {
   post: CollectionEntry<'posts'>;
 };
 type Author = CollectionEntry<'people'>;
+type Tag = CollectionEntry<'tag'>;
 
 const { post } = Astro.props;
 const author: Author = await getEntry(post.data.author);
@@ -27,9 +28,10 @@ const author: Author = await getEntry(post.data.author);
   <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>
     <img width={720} height={360} src={post.data.heroImage} alt="" />
     <h4 class="title">{post.data.title}</h4>
-    <p class="date">
-      <FormattedDate date={post.data.pubDate} />
-    </p>
-    <p>{author.data.name}</p>
+    <AvatarText person={author}>
+      <p class="date">
+        <FormattedDate date={post.data.pubDate} />
+      </p>
+    </AvatarText>
   </a>
 </li>
