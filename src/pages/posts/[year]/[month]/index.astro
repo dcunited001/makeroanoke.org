@@ -3,13 +3,9 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import { loadAndFormatCollection } from '@/lib/utils.ts';
 
 import Layout from '@/layouts/Base.astro';
-import FormattedDate from '@/components/FormattedDate.astro';
-import Navbar from '@/components/Navbar.astro';
-
-import PostCard from '@/components/post/Card.astro';
 import SubNavbar from '@/components/SubNavbar.astro';
 
-import { Debug } from 'astro:components';
+import PostList from '@/components/post/List.astro';
 
 export async function getStaticPaths() {
   const posts = await loadAndFormatCollection('posts');
@@ -32,63 +28,10 @@ const posts = (await getCollection('posts'))
       params.month,
   )
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const fdsa = posts.map((post) => {
-  return [post.data.pubDate.getFullYear().toString(), params.year, 'fdsa'];
-});
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <SubNavbar slot="subnav" links={[]} />
 
-  <style is:global>
-    main {
-      width: 960px;
-    }
-    ul.card-list {
-      display: flex;
-      flex-wrap: wrap;
-
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-    ul.card-list li {
-      width: calc(50% - 1rem);
-      margin: 0.5rem;
-    }
-    ul.card-list li * {
-      text-decoration: none;
-      transition: 0.2s ease;
-    }
-    ul.card-list li img {
-      margin-bottom: 0.5rem;
-      border-radius: 12px;
-    }
-    ul.card-list li a {
-      display: block;
-    }
-    ul.card-list li a:hover h4,
-    ul li a:hover .date {
-      color: rgb(var(--accent));
-    }
-    ul.card-list a:hover img {
-      box-shadow: var(--box-shadow);
-    }
-    @media (max-width: 720px) {
-      ul.card-list {
-        gap: 0.5em;
-      }
-      ul.card-list li {
-        width: 100%;
-        text-align: center;
-      }
-    }
-  </style>
-
-  <section>
-    <ul class="card-list">
-      {posts.map((post) => <PostCard post={post} />)}
-    </ul>
-  </section>
+  <PostList posts={posts} />
 </Layout>
