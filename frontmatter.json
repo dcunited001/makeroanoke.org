@@ -5,8 +5,10 @@
   "frontMatter.preview.host": "http://127.0.0.1:4321",
   "frontMatter.content.publicFolder": "public",
   "frontMatter.content.autoUpdateDate": false,
+  "frontMatter.content.fmHighlight": true,
   "frontMatter.dashboard.content.card.fields.title": "title",
   "frontMatter.dashboard.content.card.fields.description": "description",
+  "frontMatter.dashboard.content.card.fields.state": true,
   "frontMatter.content.pageFolders": [
     {
       "title": "posts",
@@ -39,23 +41,6 @@
           "required": true
         }
       ]
-    },
-    {
-      "id": "generalMetadata",
-      "fields": [
-        {
-          "title": "Tags",
-          "name": "tags",
-          "type": "tags"
-        },
-        {
-          "title": "Category",
-          "name": "category",
-          "type": "categories",
-          "taxonomyLimit": 1,
-          "singleValueAsString": true
-        }
-      ]
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
@@ -80,13 +65,25 @@
           "required": true
         },
         {
+          "name": "draft",
+          "title": "Draft?",
+          "type": "boolean",
+          "default": null
+        },
+        {
+          "title": "Content preview",
+          "name": "heroImage",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        { "name": "divider", "type": "divider" },
+        {
           "title": "Author",
           "name": "author",
           "type": "dataFile",
           "dataFileId": "authors",
           "dataFileKey": "id",
           "dataFileValue": "name",
-          "single": true,
           "required": true
         },
         {
@@ -96,12 +93,7 @@
           "default": "{{now}}",
           "isPublishDate": true
         },
-        {
-          "title": "Content preview",
-          "name": "heroImage",
-          "type": "image",
-          "isPreviewImage": true
-        },
+        { "name": "divider", "type": "divider" },
         {
           "title": "Tags",
           "name": "tags",
@@ -137,15 +129,18 @@
           "required": true
         },
         {
-          "title": "Author",
-          "name": "author",
-          "type": "dataFile",
-          "dataFileId": "authors",
-          "dataFileKey": "id",
-          "dataFileValue": "name",
-          "single": true,
-          "required": true
+          "name": "draft",
+          "title": "Draft?",
+          "type": "boolean",
+          "default": null
         },
+        {
+          "title": "Content preview",
+          "name": "heroImage",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        { "name": "divider", "type": "divider" },
         {
           "title": "Event Date",
           "name": "eventDate",
@@ -164,6 +159,16 @@
           "type": "datetime",
           "required": true
         },
+        { "name": "divider", "type": "divider" },
+        {
+          "title": "Author",
+          "name": "author",
+          "type": "dataFile",
+          "dataFileId": "authors",
+          "dataFileKey": "id",
+          "dataFileValue": "name",
+          "required": true
+        },
         {
           "title": "Publishing date",
           "name": "pubDate",
@@ -172,12 +177,7 @@
           "default": "{{now}}",
           "isPublishDate": true
         },
-        {
-          "title": "Content preview",
-          "name": "heroImage",
-          "type": "image",
-          "isPreviewImage": true
-        },
+        { "name": "divider", "type": "divider" },
         {
           "title": "Tags",
           "name": "tags",
