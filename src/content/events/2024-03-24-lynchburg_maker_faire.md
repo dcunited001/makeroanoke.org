@@ -1,5 +1,5 @@
 ---
-author: david-conner
+author: aaron-mcphall
 title: "2024 Maker Faire Lynchburg"
 description: ""
 

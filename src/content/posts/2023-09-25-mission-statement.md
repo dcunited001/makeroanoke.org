@@ -1,5 +1,5 @@
 ---
-author: david-conner
+author: aaron-mcphall
 title:  "Mission Statement"
 description: "MAKE Roanoke exists to promote knowledge, skill, and creativity in science, technology, crafts, and the arts"
 

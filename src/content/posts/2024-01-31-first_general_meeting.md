@@ -1,5 +1,5 @@
 ---
-author: david-conner
+author: aaron-mcphall
 title:  "First Public Meeting"
 description: Join us at the South County Library on February 22nd at 6:00 PM. 
 
