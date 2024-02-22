@@ -9,50 +9,18 @@ type Props = {
 const { posts } = Astro.props;
 ---
 
-<style is:global>
-  ul.card-list {
-    display: flex;
-    flex-wrap: wrap;
-
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  ul.card-list li {
-    width: calc(50% - 1rem);
-    margin: 0.5rem;
-  }
-  ul.card-list li * {
-    text-decoration: none;
-    transition: 0.2s ease;
-  }
-  ul.card-list li img {
-    margin-bottom: 0.5rem;
-    border-radius: 12px;
-  }
-  ul.card-list li a {
-    display: block;
-  }
-  ul.card-list li a:hover h4,
+<style>
+  /* ul.card-list li a:hover h4,
   ul li a:hover .date {
     color: rgb(var(--accent));
   }
   ul.card-list a:hover img {
     box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 720px) {
-    ul.card-list {
-      gap: 0.5em;
-    }
-    ul.card-list li {
-      width: 100%;
-      text-align: center;
-    }
+  } */
+  foo {
   }
 </style>
-
-<section>
-  <ul class="card-list">
-    {posts.map((post) => <PostCard post={post} />)}
-  </ul>
+<!-- <PostCard post={post} /> -->
+<section class="grid md:grid-cols-2 grid-cols-1 gap-3">
+  {posts.map((post) => <PostCard post={post} />)}
 </section>
