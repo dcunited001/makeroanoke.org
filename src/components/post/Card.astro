@@ -1,17 +1,17 @@
 ---
-import FormattedDate from '@/components/FormattedDate.astro';
 import CategoryBadge from '@/components/category/Badge.astro';
-import AvatarText from '@/components/people/AvatarText.astro';
 import { getEntry, type CollectionEntry } from 'astro:content';
+import FormattedDate from '../FormattedDate.astro';
+import AvatarText from '../people/AvatarText.astro';
 
 type Props = {
   post: CollectionEntry<'posts'>;
 };
 type Author = CollectionEntry<'people'>;
-type Tag = CollectionEntry<'tag'>;
+// type Tag = CollectionEntry<'tag'>;
 
 const { post } = Astro.props;
-const author: Author = await getEntry(post.data.author);
+const author: Author = await getEntry('people', post.data.author.id);
 ---
 
 <style>
@@ -40,13 +40,6 @@ const author: Author = await getEntry(post.data.author);
     <div class="flex-auto justify-self-end">
       <CategoryBadge category={post.data.category} />
     </div>
-    <!-- <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>
-      <h5
-        class="mb-0 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-      >
-        {post.data.title}
-      </h5>
-    </a> -->
   </div>
   <!-- max-w-sm -->
   <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>
@@ -65,7 +58,7 @@ const author: Author = await getEntry(post.data.author);
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
       {post.data.description}
     </p>
-    <!-- <a
+    <a
       href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}
       class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     >
@@ -84,6 +77,6 @@ const author: Author = await getEntry(post.data.author);
           stroke-width="2"
           d="M1 5h12m0 0L9 1m4 4L9 9"></path>
       </svg>
-    </a> -->
+    </a>
   </div>
 </div>

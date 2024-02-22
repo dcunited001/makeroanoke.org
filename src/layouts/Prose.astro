@@ -1,0 +1,43 @@
+---
+import FormattedDate from '@/components/FormattedDate.astro';
+import AvatarText from '@/components/people/AvatarText.astro';
+import Layout from '@/layouts/Base.astro';
+import '@/styles/prose.css';
+import { getEntry } from 'astro:content';
+
+const post = Astro.props;
+
+const { title, description, heroImage, pubDate, updatedDate } = post.data;
+
+const author = await getEntry('people', 'david-conner');
+---
+
+<Layout title={title} description={description}>
+  <article class="prose">
+    <section class="prose-title">
+      <div class="title">
+        <h1>{title}</h1>
+      </div>
+    </section>
+    <section class="hero-image">
+      {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+    </section>
+    <section class="prose-info">
+      <AvatarText person={author}>
+        <div class="date">
+          <FormattedDate date={pubDate} />
+        </div>
+      </AvatarText>
+      {
+        updatedDate && (
+          <div class="last-updated-on">
+            Last updated on <FormattedDate date={updatedDate} />
+          </div>
+        )
+      }
+    </section>
+    <section class="prose">
+      <slot />
+    </section>
+  </article>
+</Layout>

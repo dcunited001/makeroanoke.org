@@ -21,6 +21,11 @@ const { posts } = Astro.props;
   }
 </style>
 <!-- <PostCard post={post} /> -->
-<section class="grid md:grid-cols-2 grid-cols-1 gap-3">
-  {posts.map((post) => <PostCard post={post} />)}
-</section>
+<article>
+  <div class="title">
+    <!-- <h1>{title}</h1> -->
+  </div>
+  <section class="grid md:grid-cols-2 grid-cols-1 gap-3">
+    {posts.map((post) => <PostCard post={post} />)}
+  </section>
+</article>
