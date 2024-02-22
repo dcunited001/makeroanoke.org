@@ -1,16 +1,14 @@
 import { defineCollection, reference, z } from "astro:content";
+import { dateSchema, tagSchema, peopleSchema, categorySchema, postSchema, eventSchema } from '@/domain/types';
 
-const tag = z.string();
-const tags = z.array(tag);
-const category = z.string();
-const categories = z.array(category);
+// TODO: tags/category schemas
+
+const tag = tagSchema;
+const category = categorySchema;
 
 const people = defineCollection({
   type: 'data',
-  schema: z.object({
-    name: z.string(),
-    headshot: z.string().optional()
-  })
+  schema: peopleSchema
 });
 
 // TODO: object type
@@ -25,44 +23,33 @@ const roles = defineCollection({
 const posts = defineCollection({
 	type: "content",
 	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		// Transform string to Date object
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-    author: reference('people'),
-    tags: tags.nullable().optional(),
-    category: category.optional()
-	}),
+	schema: postSchema,
 });
 
 const events = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    heroImage: z.string().optional(),
-    onlineUrl: z.string().optional(),
-    locationUrl: z.string().optional(),
-    author: reference('people'),
-    tags: tags.nullable().optional(),
-    category: category.optional()
-  })
+  schema: eventSchema
 })
 
+// const tags = defineCollection({
+//   type: "content",
+//   schema: z.object({
+//     name: z.string()
+//   })
+// });
 
+// const categories = defineCollection({
+//   type: "content",
+//   schema: z.object({
+//     name: z.string()
+//   })
+// });
 
 export const collections = {
-  people,
-  roles,
-  posts,
-  events,
-  tag,
-  tags,
-  category,
-  categories
+  'people': people,
+  'roles': roles,
+  'posts': posts,
+  'events': events,
+  'tag': tag,
+  'category': category
 };
