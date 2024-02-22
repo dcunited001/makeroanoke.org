@@ -1,6 +1,6 @@
 ---
 import { COPYRIGHT } from '@/consts';
-import { url } from '@/lib/data';
+import { relUrl } from '@/lib/utils';
 import { Icon } from 'astro-icon/components';
 
 const today = new Date();
@@ -21,7 +21,7 @@ const today = new Date();
       <span class="sr-only">Follow MAKE Roanoke on Facebook</span>
       <Icon name="simple-icons:facebook" size={32} aria-hidden="true" />
     </a>
-    <a href={url('rss.xml')}>
+    <a href={relUrl('rss.xml')}>
       <span class="sr-only">Subscribe on RSS</span>
       <Icon name="simple-icons:rss" size={32} aria-hidden="true" />
     </a>

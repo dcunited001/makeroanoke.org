@@ -1,5 +1,5 @@
 ---
-import { url } from '@/lib/data';
+import { relUrl } from '@/lib/utils';
 import type { CollectionEntry } from 'astro:content';
 
 type Props = {
@@ -11,6 +11,6 @@ const { person } = Astro.props;
 
 <img
   class="w-10 h-10 rounded"
-  src={url(person.data.headshot)}
+  src={relUrl(person.data.headshot)}
   alt="Default avatar"
 />

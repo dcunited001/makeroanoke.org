@@ -8,7 +8,7 @@ import '@/styles/global.css';
 
 // TODO: check the social URLs below, our post URLs can't place image links
 // relative to their directory
-import { url } from '@/lib/data';
+import { relUrl } from '@/lib/utils';
 
 const author = pkg.author.name;
 const license = pkg.license;
@@ -35,10 +35,24 @@ const {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
 <!-- Favicon related -->
-<link rel="apple-touch-icon" sizes="180x180" href={url('favicon/apple-touch-icon.png')}>
-<link rel="icon" type="image/png" sizes="32x32" href={url('favicon/favicon-32x32.png')}>
-<link rel="icon" type="image/png" sizes="16x16" href={url('favicon/favicon-16x16.png')}>
-<link rel="manifest" href={url('favicon/site.webmanifest')}>
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href={relUrl('favicon/apple-touch-icon.png')}
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href={relUrl('favicon/favicon-32x32.png')}
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href={relUrl('favicon/favicon-16x16.png')}
+/>
+<link rel="manifest" href={relUrl('favicon/site.webmanifest')} />
 
 <meta name="generator" content={Astro.generator} />
 
@@ -64,7 +78,7 @@ const {
 <!-- <meta name="copyright" content={license} /> -->
 
 <!-- Site Map -->
-<link rel="sitemap" href={url('sitemap-index.xml')} />
+<link rel="sitemap" href={relUrl('sitemap-index.xml')} />
 
 
 <!-- Open Graph / Facebook -->

@@ -3,7 +3,7 @@ import Carousel from '@/components/Carousel.astro';
 import Jumbotron from '@/components/flowbite/Jumbotron.astro';
 import AvatarText from '@/components/people/AvatarText.astro';
 import Layout from '@/layouts/Base.astro';
-import { asset, url } from '@/lib/data.ts';
+import { asset } from '@/lib/utils.ts';
 import { getEntry } from 'astro:content';
 
 const { title, description } = Astro.props;
@@ -28,10 +28,10 @@ const person = await getEntry('people', 'david-conner');
     <dl class="divide-y">
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
         <dt class="text-sm font-medium leading-6 text-gray-900">
-          url("test/url")
+          relUrl("test/url")
         </dt>
         <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-          {url('test/url')}
+          {relUrl('test/url')}
         </dd>
       </div>
 

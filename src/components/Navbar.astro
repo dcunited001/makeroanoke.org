@@ -1,16 +1,16 @@
 ---
-import { url } from '@/lib/data';
-
+import { linkSegments, relUrl } from '@/lib/utils';
 // TODO: set aria-current
+
 ---
 
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
   <div
     class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4"
   >
-    <a href={url()} class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href={relUrl()} class="flex items-center space-x-3 rtl:space-x-reverse">
       <img
-        src={url('MAKE_Roanoke_Logo.png')}
+        src={relUrl('MAKE_Roanoke_Logo.png')}
         class="h-8"
         alt="MAKE Roanoke Logo"
       />
