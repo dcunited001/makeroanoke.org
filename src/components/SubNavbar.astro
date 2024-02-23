@@ -1,16 +1,40 @@
 ---
-// TODO: set aria-current
-
-interface Link {
-  href: string;
-  text: string;
-}
+import { linkSegments } from '@/lib/utils';
+import { makeNavbarEntries, navbarConfig, type NavbarConfig } from './schema';
 
 interface Props {
-  links: Link[];
+  sublist?: NavbarConfig;
 }
 
-const { links } = Astro.props;
+const { sublist } = Astro.props;
+// const { links } = Astro.props;
+
+// get the first segment of the url with a slash
+const subnavSection = `/${linkSegments(Astro.url.pathname)[0]}`;
+
+/* either:
+  - the route's *.astro has given us a routeSubnavConfig
+  - or we default to fetching it from navbarConfig.
+
+  Anything else is an error.
+
+  A page must at least define a subnav as an empty NavbarConfig. */
+const subnavConfig =
+  Astro.props.sublist ||
+  navbarConfig.items.filter((cfg) => {
+    return cfg.link === subnavSection;
+  })[0];
+
+function markCurrent(path: string[], link: string[]) {
+  // TODO this will need to change
+  return path[0] === link[0] && path[1] === link[1];
+}
+
+const subnavEntries = makeNavbarEntries(
+  subnavConfig.items || [],
+  Astro.url,
+  markCurrent,
+);
 ---
 
 <nav slot="subnav" class="bg-gray-50 dark:bg-gray-700">
@@ -20,13 +44,13 @@ const { links } = Astro.props;
         class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm"
       >
         {
-          links.map((a) => (
+          subnavEntries.map((a) => (
             <li>
               <a
                 href={a.href}
                 class="text-gray-900 dark:text-white hover:underline"
               >
-                {a.text}
+                {a.label}
               </a>
             </li>
           ))

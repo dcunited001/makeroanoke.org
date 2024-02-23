@@ -27,10 +27,14 @@ const posts = (await getCollection('posts'))
       params.month,
   )
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const subnav: NavbarConfig = {
+  items: [],
+};
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <SubNavbar slot="subnav" links={[]} />
+  <SubNavbar slot="subnav" sublist={subnav} />
 
   <PostList posts={posts} />
 </Layout>

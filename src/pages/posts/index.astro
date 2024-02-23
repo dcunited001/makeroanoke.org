@@ -10,10 +10,14 @@ const pageDescription = 'Articles from makers in Roanoke.';
 const posts = (await loadAndFormatCollection('posts')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const subnav: NavbarConfig = {
+  items: [],
+};
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <SubNavbar slot="subnav" links={[]} />
+  <SubNavbar slot="subnav" sublist={subnav} />
 
   <PostList posts={posts} />
 </Layout>

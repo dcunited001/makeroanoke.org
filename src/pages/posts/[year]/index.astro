@@ -22,10 +22,14 @@ const params = Astro.params;
 const posts = (await getCollection('posts'))
   .filter((p) => p.data.pubDate.getFullYear().toString() == params.year)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const subnav: NavbarConfig = {
+  items: [],
+};
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <SubNavbar slot="subnav" links={[]} />
+  <SubNavbar slot="subnav" sublist={subnav} />
 
   <PostList posts={posts} />
 </Layout>

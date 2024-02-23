@@ -6,6 +6,10 @@ const eventLinks = [
   { href: '/events/past-events', text: 'Past Events' },
   { href: '/events/workshops', text: 'Workshops' },
 ];
+
+const subnav: NavbarConfig = {
+  items: [],
+};
 ---
 
 <Layout
@@ -14,5 +18,5 @@ const eventLinks = [
   pubDate={new Date('August 08 2021')}
   heroImage="/img/placeholder-about.jpg"
 >
-  <SubNavbar slot="subnav" links={eventLinks} />
+  <SubNavbar slot="subnav" sublist={subnav} />
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import FormattedDate from '@/components/FormattedDate.astro';
+import SubNavbar from '@/components/SubNavbar.astro';
 import Layout from '@/layouts/Base.astro';
 import '@/styles/prose.css';
 
@@ -11,6 +12,7 @@ const updatedDate = new Date(
 ---
 
 <Layout title={title} description={description}>
+  <SubNavbar slot="subnav" />
   <article class="prose">
     <section class="prose-title">
       <div class="title">

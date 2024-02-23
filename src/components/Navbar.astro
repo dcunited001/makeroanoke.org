@@ -1,7 +1,18 @@
 ---
-import { linkSegments, relUrl } from '@/lib/utils';
+// import type { HTMLAttributes } from 'astro/types';
+import { makeNavbarEntries, navbarConfig } from '@/components/schema';
+import { relUrl } from '@/lib/utils';
 // TODO: set aria-current
 
+function markCurrent(path: string[], link: string[]) {
+  return path[0] === link[0];
+}
+
+const navbarEntries = makeNavbarEntries(
+  navbarConfig.items,
+  Astro.url,
+  markCurrent,
+);
 ---
 
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -43,41 +54,28 @@ import { linkSegments, relUrl } from '@/lib/utils';
       <ul
         class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
       >
-        <li>
-          <a
-            href="/flowbite"
-            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
-            aria-current="page">Flowbite</a
-          >
-        </li>
-        <li>
-          <a
-            href="/posts"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >Posts</a
-          >
-        </li>
-        <li>
-          <a
-            href="/events"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >Events</a
-          >
-        </li>
-        <li>
-          <a
-            href="/guilds"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >Guilds</a
-          >
-        </li>
-        <li>
-          <a
-            href="/about"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >About</a
-          >
-        </li>
+        {
+          navbarEntries.map((entry) => (
+            <li>
+              {entry.isCurrent ? (
+                <a
+                  href={entry.href}
+                  aria-current={entry.isCurrent && 'page'}
+                  class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                >
+                  {entry.label}
+                </a>
+              ) : (
+                <a
+                  href={entry.href}
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  {entry.label}
+                </a>
+              )}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
