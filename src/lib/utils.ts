@@ -11,9 +11,12 @@ export function asset(path: string) {
   return `${REMOTE_ASSETS_BASE_URL}/${path}`;
 }
 
+// FIXME: typing: RegExpMatchArray
 export function linkSegments(path: string): string[] {
-  const reg = new RegExp("[^\/]+", "g");
-  return path.match(reg);
+  const reg = new RegExp('[^/]+', 'g');
+
+  // HACK: basecase for root pathname "/"
+  return path.match(reg) || [''];
 }
 
 export async function loadAndFormatCollection(name) {

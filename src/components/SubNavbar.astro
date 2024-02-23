@@ -13,13 +13,15 @@ const { sublist } = Astro.props;
 const subnavSection = `/${linkSegments(Astro.url.pathname)[0]}`;
 
 /* either:
-  - the route's *.astro has given us a routeSubnavConfig
+  - it's the "/" root page and has no subnav
+  - the route's *.astro has given us in sublist
   - or we default to fetching it from navbarConfig.
 
   Anything else is an error.
 
   A page must at least define a subnav as an empty NavbarConfig. */
 const subnavConfig =
+  (Astro.url.pathname == '/' && []) ||
   Astro.props.sublist ||
   navbarConfig.items.filter((cfg) => {
     return cfg.link === subnavSection;
