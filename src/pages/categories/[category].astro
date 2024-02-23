@@ -1,0 +1,39 @@
+---
+import SubNavbar from '@/components/SubNavbar.astro';
+import PostList from '@/components/post/List.astro';
+import type { NavbarConfig } from '@/components/schema';
+import Layout from '@/layouts/Base.astro';
+import { isNotNull, loadAndFormatCollection } from '@/lib/utils';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPosts = await loadAndFormatCollection('posts');
+
+  const uniqueCategories = [
+    ...new Set(allPosts.map((post) => post.data.category).flat()),
+  ];
+
+  return uniqueCategories.filter(isNotNull).map((category: string) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.category.includes(category),
+    );
+    return {
+      params: { category },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+type Props = CollectionEntry<'posts'>;
+const category = Astro.params;
+const posts = Astro.props.posts;
+
+const subnav: NavbarConfig = {
+  items: [],
+};
+---
+
+<Layout title={category} description={`Posts and events in ${category}`}>
+  <SubNavbar slot="subnav" sublist={subnav} />
+  <PostList posts={posts} />
+</Layout>

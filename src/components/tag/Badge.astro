@@ -1,0 +1,15 @@
+---
+interface Props {
+  tag: string;
+}
+
+const { tag } = Astro.props;
+
+const bgColor = 'bg-indigo-100';
+const textColor = 'text-blue-800';
+---
+
+<span
+  class={`text-xs border-blue-200 border-2 font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ${bgColor} ${textColor}`}
+  >{tag}</span
+>

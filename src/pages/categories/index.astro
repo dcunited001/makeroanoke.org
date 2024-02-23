@@ -2,6 +2,7 @@
 // TODO: the usage of type "categories" is wrong
 import { categories } from '@/content/config';
 import Layout from '@/layouts/Base.astro';
+import { isNotNull } from '@/lib/utils';
 
 const allPosts = await Astro.glob('../../content/posts/*.md');
 const allEvents = await Astro.glob('../../content/events/*.md');
@@ -13,9 +14,9 @@ const eventCategories: categories = allEvents
   .map((event) => event.frontmatter.category)
   .flat();
 
-const uniqCategories = [
-  ...new Set(postCategories.concat(eventCategories)),
-].sort();
+const uniqCategories = [...new Set(postCategories.concat(eventCategories))]
+  .filter(isNotNull)
+  .sort();
 
 const pageTitle = 'Tag Index';
 
@@ -23,8 +24,27 @@ const pageTitle = 'Tag Index';
 type Props = {
   categories: categories;
 };
+
+const bgColor = 'bg-blue-100';
+const textColor = 'text-blue-800';
 ---
 
 <Layout>
-  <div>{uniqCategories.map((tag) => <p>{tag}</p>)}</div>
+  <div>
+    <ul>
+      {
+        uniqCategories.map((category) => (
+          <li>
+            <span
+              class={`text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ${bgColor} ${textColor}`}
+            >
+              <a class="text-blue-400" href={`/categories/${category}`}>
+                {category}
+              </a>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </Layout>

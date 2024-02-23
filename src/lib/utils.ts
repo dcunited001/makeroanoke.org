@@ -19,6 +19,10 @@ export function linkSegments(path: string): string[] {
   return path.match(reg) || [''];
 }
 
+// HACK: for .filter(isNotNull) while preserving types
+// - this will move to ./src/domain/*.ts
+export const isNotNull = <T,>(x: T): x is NonNullable<T> => !!x;
+
 export async function loadAndFormatCollection(name) {
   const coll = await getCollection(name);
 

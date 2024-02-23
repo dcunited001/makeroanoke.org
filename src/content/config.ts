@@ -12,13 +12,13 @@ const people = defineCollection({
 });
 
 // TODO: object type
-const roles = defineCollection({
-  type: 'data',
-  schema: z.object({
-    id: z.string().uuid(),
-    name: z.string()
-  })
-});
+// const roles = defineCollection({
+//   type: 'data',
+//   schema: z.object({
+//     id: z.string().uuid(),
+//     name: z.string()
+//   })
+// });
 
 const posts = defineCollection({
 	type: "content",
@@ -47,7 +47,7 @@ const events = defineCollection({
 
 export const collections = {
   'people': people,
-  'roles': roles,
+  // 'roles': roles,
   'posts': posts,
   'events': events,
   'tag': tag,
