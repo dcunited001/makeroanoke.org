@@ -32,14 +32,17 @@ export const navbarConfig: NavbarConfig = {
     {
       label: 'Flowbite',
       link: '/flowbite',
+      // items: [] // should not be necessary
     },
     {
       label: 'Posts',
       link: '/posts',
+      // items: []
     },
     {
       label: 'Events',
       link: '/events',
+      // items: []
     },
     {
       label: 'Guilds',
