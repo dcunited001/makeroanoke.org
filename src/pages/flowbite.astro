@@ -3,7 +3,7 @@ import Carousel from '@/components/Carousel.astro';
 import Jumbotron from '@/components/flowbite/Jumbotron.astro';
 import AvatarText from '@/components/people/AvatarText.astro';
 import Layout from '@/layouts/Base.astro';
-import { asset } from '@/lib/utils.ts';
+import { asset, relUrl } from '@/lib/utils.ts';
 import { getEntry } from 'astro:content';
 
 const { title, description } = Astro.props;

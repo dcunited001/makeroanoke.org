@@ -69,9 +69,6 @@ a {
 a:hover {
 	color: var(--accent);
 }
-article.prose p {
-	margin-bottom: 2em;
-}
 textarea {
 	width: 100%;
 	font-size: 16px;
