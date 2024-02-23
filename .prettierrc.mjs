@@ -1,11 +1,11 @@
-// npm install --save-dev prettier prettier-plugin-astro
+// npm install --save-dev prettier prettier-plugin-astro prettier-plugin-tailwindcss
 
 /** @type {import("prettier").Config} */
 export default {
   printWidth: 80,
   semi: true,
   singleQuote: true,
-  plugins: ['prettier-plugin-astro'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   overrides: [
     {
       files: '*.astro',
