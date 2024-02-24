@@ -1,0 +1,19 @@
+---
+import { button } from '@/components/cva';
+import type { HTMLAttributes } from 'astro/types';
+import { type VariantProps } from 'class-variance-authority';
+
+export interface Props
+  extends HTMLAttributes<'button'>,
+    VariantProps<typeof button> {}
+
+/**
+ * For Astro components, we recommend setting your defaultVariants within
+ * Astro.props (which are `undefined` by default)
+ */
+const { intent = 'primary', size = 'medium' } = Astro.props;
+---
+
+<button class={button({ intent, size })}>
+  <slot />
+</button>

@@ -1,0 +1,24 @@
+---
+import Button from '@/components/Button.astro';
+import Layout from '@/layouts/Base.astro';
+
+const intents = [undefined, 'primary', 'secondary'] as const;
+const sizes = [undefined, 'medium', 'small'] as const;
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  {
+    sizes.map((size) => (
+      <div class="flex flex-row m-2">
+        {intents.map((intent) => (
+          <div class="m-2">
+            <Button {...(intent && { intent })} {...(size && { size })}>
+              {intent || 'default'} button
+            </Button>
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</Layout>
