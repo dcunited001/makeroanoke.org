@@ -11,9 +11,9 @@ export interface Props
  * For Astro components, we recommend setting your defaultVariants within
  * Astro.props (which are `undefined` by default)
  */
-const { intent = 'primary', size = 'md' } = Astro.props;
+const { intent = 'primary', size = 'md', _content = 'text' } = Astro.props;
 ---
 
-<button class={button({ intent, size })}>
+<button class={button({ intent, size, _content })}>
   <slot />
 </button>
