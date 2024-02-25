@@ -27,13 +27,7 @@ export interface NavbarConfig {
   items: NavbarItem[];
 }
 
-export const navbarConfig: NavbarConfig = {
   items: [
-    {
-      label: 'Flowbite',
-      link: '/flowbite',
-      // items: [] // should not be necessary
-    },
     {
       label: 'Posts',
       link: '/posts',

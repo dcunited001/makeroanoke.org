@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from "@astrojs/tailwind";
+import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 
 const ASTRO_PORT = 4321;
@@ -15,9 +15,33 @@ const ASTRO_PORT = 4321;
 
 // NOTE: Astro CLI flags override site
 
+const iconConfig = {
+  // changing included icons requires restarting astro
+  include: {
+    flowbite: ['*'],
+    mdi: ['email-fast-outline'],
+    'simple-icons': [
+      'github',
+      'calendar',
+      'email',
+      'facebook',
+      'instagram',
+      'linkedin',
+      'pdf',
+      'pinterest',
+      'rss',
+      'twitter',
+      'youtube',
+      'stopwatch',
+    ],
+  },
+};
+
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.CI ? 'https://makeroanoke.org' : `http://localhost:${ASTRO_PORT}`,
+  site: process.env.CI
+    ? 'https://makeroanoke.org'
+    : `http://localhost:${ASTRO_PORT}`,
   // base: process.env.CI
   //   ? '/site_root' : undefined,
 
@@ -25,25 +49,6 @@ export default defineConfig({
     mdx(),
     sitemap(),
     tailwind(),
-    icon({
-      // changing included icons requires restarting astro
-      include: {
-        flowbite: ['*'],
-        mdi: ["email-fast-outline"],
-        "simple-icons": [
-          "github",
-          "calendar",
-          "email",
-          "facebook",
-          "instagram",
-          "linkedin",
-          "pdf",
-          "pinterest",
-          "rss",
-          "twitter",
-          "youtube",
-          "stopwatch"],
-      }
-    })
-  ]
+    icon(iconConfig),
+  ],
 });

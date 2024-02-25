@@ -6,6 +6,7 @@ export default {
   semi: true,
   singleQuote: true,
   plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['clsx', 'cva'],
   overrides: [
     {
       files: '*.astro',

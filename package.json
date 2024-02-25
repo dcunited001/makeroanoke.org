@@ -36,6 +36,7 @@
     "astro": "^4.3.7",
     "astro-icon": "^1.1.0",
     "class-variance-authority": "^0.7.0",
+    "cssnano": "^6.0.5",
     "flowbite": "^2.3.0",
     "flowbite-typography": "^1.0.3",
     "postcss": "^8.4.35",
