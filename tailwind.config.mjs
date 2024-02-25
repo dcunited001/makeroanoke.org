@@ -1,22 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: [
+  content: [
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-    './node_modules/flowbite/**/*.js'
+    './node_modules/flowbite/**/*.js',
   ],
-	theme: {
-		extend: {
+  theme: {
+    extend: {
       textDecoration: ['active'],
       transitionProperty: {
-        width: 'width'
+        width: 'width',
       },
       colors: {
         accent: {
-          1: "hsl(288 95.8% 90.6%)",
-          2: "hsl(168 83.8% 78.2%)",
+          1: 'hsl(288 95.8% 90.6%)',
+          2: 'hsl(168 83.8% 78.2%)',
         },
-        bkg: "hsl(210 40% 98%)",
-        content: "hsl(217 32.6% 17.5%)",
+        bkg: 'hsl(210 40% 98%)',
+        content: 'hsl(217 32.6% 17.5%)',
 
         // NOTE: use with bg-navy, etc
         white: 'hsl(var(--color-white))',
@@ -37,62 +37,62 @@ export default {
         // printing: 'hsl(var(--color-printing)) / <alpha-value>'
       },
 
-			fontFamily: {
-				sans: [
+      fontFamily: {
+        sans: [
           'Fira Sans',
-					'ui-sans-serif',
-					'system-ui',
-					'-apple-system',
-					'system-ui',
-					'Segoe UI',
-					'Roboto',
-					'Helvetica Neue',
-					'Arial',
-					'Noto Sans',
-					'sans-serif',
-					'Apple Color Emoji',
-					'Segoe UI Emoji',
-					'Segoe UI Symbol',
-					'Noto Color Emoji',
-				],
-				body: [
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'system-ui',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'Noto Color Emoji',
+        ],
+        body: [
           'Fira Sans',
-					'ui-sans-serif',
-					'system-ui',
-					'-apple-system',
-					'system-ui',
-					'Segoe UI',
-					'Roboto',
-					'Helvetica Neue',
-					'Arial',
-					'Noto Sans',
-					'sans-serif',
-					'Apple Color Emoji',
-					'Segoe UI Emoji',
-					'Segoe UI Symbol',
-					'Noto Color Emoji',
-				],
-				mono: [
-					'ui-monospace',
-					'SFMono-Regular',
-					'Menlo',
-					'Monaco',
-					'Consolas',
-					'Liberation Mono',
-					'Courier New',
-					'monospace',
-				],
-      }
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'system-ui',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'Noto Color Emoji',
+        ],
+        mono: [
+          'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'Monaco',
+          'Consolas',
+          'Liberation Mono',
+          'Courier New',
+          'monospace',
+        ],
+      },
     },
-	},
-	plugins: [
+  },
+  plugins: [
     require('flowbite/plugin'),
     require('flowbite-typography'),
     require('tailwind-scrollbar')({ nocompatible: true }),
 
     // fetching dark mode from user's preferences
     // https://www.youtube.com/watch?v=WTchW0LdWL0
-    function ({ addComponents, theme }) {
+    ({ addComponents, theme }) => {
       addComponents({
         ':root': {
           '--color-bkg': '210deg 40% 98%',
@@ -105,7 +105,7 @@ export default {
           '--color-metal': '220deg 94% 51%',
           '--color-fabric': '189deg 76% 53%',
           '--color-tronics': '298deg 62% 47%',
-          '--color-printing': '99deg 72% 59%'
+          '--color-printing': '99deg 72% 59%',
         },
         // TODO: set color variables for dark theme
         '@media (prefers-color-scheme:dark)': {
@@ -120,10 +120,10 @@ export default {
             '--color-metal': '220deg 94% 51%',
             '--color-fabric': '189deg 76% 53%',
             '--color-tronics': '298deg 62% 47%',
-            '--color-printing': '99deg 72% 59%'
+            '--color-printing': '99deg 72% 59%',
           },
-        }
-      })
-    }
+        },
+      });
+    },
   ],
-}
+};

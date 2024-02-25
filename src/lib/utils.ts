@@ -13,7 +13,7 @@ export function asset(path: string) {
 
 // FIXME: typing: RegExpMatchArray
 export function linkSegments(path: string): string[] {
-  const reg = new RegExp('[^/]+', 'g');
+  const reg = /[^/]+/g;
 
   // HACK: basecase for root pathname "/"
   return path.match(reg) || [''];
@@ -21,12 +21,12 @@ export function linkSegments(path: string): string[] {
 
 // HACK: for .filter(isNotNull) while preserving types
 // - this will move to ./src/domain/*.ts
-export const isNotNull = <T,>(x: T): x is NonNullable<T> => !!x;
+export const isNotNull = <T>(x: T): x is NonNullable<T> => !!x;
 
 export async function loadAndFormatCollection(name) {
   const coll = await getCollection(name);
 
-  coll.forEach((c) => {
+  for (const c of coll) {
     const date = c.data.pubDate;
     const year = date.getFullYear().toString();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -35,7 +35,7 @@ export async function loadAndFormatCollection(name) {
     c.data.year = year;
     c.data.month = month;
     c.data.day = day;
-  });
+  }
 
   return coll;
 }

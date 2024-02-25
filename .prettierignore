@@ -1,1 +1,7 @@
 node_modules/
+**/*.ts
+**/*.js
+**/*.mjs
+**/*.cjs
+*.mjs
+*.cjs
