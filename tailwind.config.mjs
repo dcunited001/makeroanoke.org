@@ -24,7 +24,7 @@ export default {
         wood: 'hsl(var(--color-wood))',
         metal: 'hsl(var(--color-metal))',
         fabric: 'hsl(var(--color-fabric))',
-        tronics: 'hsl(var(--color-tronics))',
+        electronics: 'hsl(var(--color-electronics))',
         printing: 'hsl(var(--color-printing))',
 
         // TODO: set a default for alpha value
@@ -33,7 +33,7 @@ export default {
         // wood: 'hsl(var(--color-wood)) / <alpha-value>',
         // metal: 'hsl(var(--color-metal)) / <alpha-value>',
         // fabric: 'hsl(var(--color-fabric)) / <alpha-value>',
-        // tronics: 'hsl(var(--color-tronics)) / <alpha-value>',
+        // electronics: 'hsl(var(--color-electronics)) / <alpha-value>',
         // printing: 'hsl(var(--color-printing)) / <alpha-value>'
       },
 
@@ -104,7 +104,7 @@ export default {
           '--color-wood': '24deg 100% 55%',
           '--color-metal': '220deg 94% 51%',
           '--color-fabric': '189deg 76% 53%',
-          '--color-tronics': '298deg 62% 47%',
+          '--color-electronics': '298deg 62% 47%',
           '--color-printing': '99deg 72% 59%',
         },
         // TODO: set color variables for dark theme
@@ -119,7 +119,7 @@ export default {
             '--color-wood': '24deg 100% 55%',
             '--color-metal': '220deg 94% 51%',
             '--color-fabric': '189deg 76% 53%',
-            '--color-tronics': '298deg 62% 47%',
+            '--color-electronics': '298deg 62% 47%',
             '--color-printing': '99deg 72% 59%',
           },
         },
