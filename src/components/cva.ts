@@ -32,11 +32,11 @@ export const buttonCVA = cva('font-semibold shadow-md capitalize', {
       ],
     },
     size: {
-      xs: ['text-xs', 'py-1', 'px-2'],
-      sm: ['text-sm', 'py-1', 'px-2'],
-      md: ['text-sm', 'py-2', 'px-4'],
-      lg: ['text-sm', 'py-2', 'px-4'],
-      xl: ['text-sm', 'py-2', 'px-4'],
+      xs: ['text-xs', 'py-0.5', 'px-2'],
+      sm: ['text-sm', 'py-0.5', 'px-2'],
+      md: ['text-sm', 'py-1', 'px-3'],
+      lg: ['text-sm', 'py-1', 'px-3'],
+      xl: ['text-sm', 'py-1', 'px-3'],
     },
     rounded: {
       normal: '',

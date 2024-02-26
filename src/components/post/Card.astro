@@ -30,9 +30,7 @@ const category: Category = await getEntry('category', post.data.category.id);
   }
 </style>
 
-<div
-  class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow"
->
+<div class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow">
   <div class="inline-flex w-full space-x-3 p-1">
     <div class="flex-auto self-start">
       <AvatarText person={author}>
@@ -42,7 +40,7 @@ const category: Category = await getEntry('category', post.data.category.id);
       </AvatarText>
     </div>
     <div class="justify-self-end">
-      <CategoryBadge category={category} />
+      <CategoryBadge category={category} _content="textAndIcon" />
     </div>
   </div>
 
@@ -56,9 +54,7 @@ const category: Category = await getEntry('category', post.data.category.id);
 
   <div class="p-2">
     <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>
-      <h5
-        class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
-      >
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
         {post.data.title}
       </h5>
     </a>
