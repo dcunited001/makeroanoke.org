@@ -1,0 +1,47 @@
+---
+import Button from '@/components/Button.astro';
+import Layout from '@/layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import Icon from 'node_modules/astro-icon/components/Icon.astro';
+
+const intents = [undefined];
+const sizes = [undefined];
+const icons = [
+  'flowbite:check-outline',
+  'flowbite:plus-outline',
+  'flowbite:link-outline',
+  'flowbite:calendar-plus-outline',
+];
+
+const { title, description } = Astro.props;
+
+const categories = (await getCollection('category')).map((cat) => {
+  // return cat.data;
+  return cat.data;
+});
+---
+
+<Layout title={title} description={description}>
+  <h2>Badges</h2>
+
+  <h3>Inline</h3>
+
+  {
+    categories.map((cat) =>
+      sizes.map((size) => (
+        <div class="m-2 inline-flex flex-row">
+          {intents.map((intent) => (
+            <Button
+              {...(intent && { intent })}
+              size="md"
+              _content="textAndIcon"
+            >
+              <Icon name={cat.icon} size={24} />
+              <span>{cat.name}</span>
+            </Button>
+          ))}
+        </div>
+      )),
+    )
+  }
+</Layout>
