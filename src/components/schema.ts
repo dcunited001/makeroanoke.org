@@ -27,6 +27,7 @@ export interface NavbarConfig {
   items: NavbarItem[];
 }
 
+let navbarConf: NavbarConfig = {
   items: [
     {
       label: 'Posts',
@@ -60,6 +61,8 @@ export interface NavbarConfig {
     },
   ],
 };
+
+export const navbarConfig: NavbarConfig = navbarConf;
 
 export function makeNavbarEntries(
   items: NavbarItem[],
