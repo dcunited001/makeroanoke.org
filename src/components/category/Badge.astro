@@ -1,6 +1,8 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 interface Props {
-  category: string;
+  category: CollectionEntry<'category'>;
 }
 
 const { category } = Astro.props;
@@ -23,5 +25,5 @@ const textColor = 'text-blue-800';
 
 <span
   class={`text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ${bgColor} ${textColor}`}
-  >{category}</span
+  >{category.data.name}</span
 >

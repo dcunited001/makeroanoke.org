@@ -10,13 +10,17 @@ import type { SchemaContext } from 'astro:content';
 export const dateSchema = z.coerce.date();
 
 export const tagSchema = z.string();
-export const categorySchema = z.string();
 
-export const peopleSchema =
-  z.object({
-    name: z.string(),
-    headshot: z.string().optional()
-  });
+export const categorySchema = z.object({
+  name: z.string(),
+  icon: z.string(),
+  color: z.string(),
+});
+
+export const peopleSchema = z.object({
+  name: z.string(),
+  headshot: z.string().optional(),
+});
 // z.infer<ReturnType<...>> when peopleSchema is parameterized
 export type People = ReadOnly<z.infer<typeof peopleSchema>>;
 
@@ -33,13 +37,15 @@ export const postSchema = ({ image }: SchemaContext) =>
     heroImage: z.string().optional(),
 
     tags: z.array(tagSchema).nullable().optional(),
-    category: categorySchema.optional(),
+    category: reference('category'),
   });
 // export type People = ReadOnly<z.infer<ReturnType<typeof peopleSchema>> & {}>;
-export type Post = ReadOnly<z.infer<ReturnType<typeof postSchema>> & {
-  previous?: Post;
-  next?: Post;
-}>;
+export type Post = ReadOnly<
+  z.infer<ReturnType<typeof postSchema>> & {
+    previous?: Post;
+    next?: Post;
+  }
+>;
 
 export const eventSchema = ({ image }: SchemaContext) =>
   z.object({
@@ -54,10 +60,12 @@ export const eventSchema = ({ image }: SchemaContext) =>
     locationUrl: z.string().optional(),
 
     tags: z.array(tagSchema).nullable().optional(),
-    category: categorySchema.optional(),
+    category: reference('category'),
   });
 
-export type Event = ReadOnly<z.infer<ReturnType<typeof eventSchema>> & {
-  previous?: Event;
-  next?: Event;
-}>;
+export type Event = ReadOnly<
+  z.infer<ReturnType<typeof eventSchema>> & {
+    previous?: Event;
+    next?: Event;
+  }
+>;

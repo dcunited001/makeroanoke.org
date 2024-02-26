@@ -4,9 +4,10 @@ import type { CollectionEntry } from 'astro:content';
 
 type Props = {
   person: CollectionEntry<'people'>;
+  size: number;
 };
 
-const { person } = Astro.props;
+const { person, size = 24 } = Astro.props;
 
 // TODO: refactor
 const avatarAlt = 'Default Avatar';
@@ -16,7 +17,7 @@ const contextText = 'Published 1/31/2024';
 
 <div class="flex items-center gap-4">
   <img
-    class="w-10 h-10 rounded"
+    class:list={['h-10 w-10 rounded']}
     src={relUrl(person.data.headshot)}
     alt={person.data.name}
   />

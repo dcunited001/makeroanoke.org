@@ -29,28 +29,32 @@ const category: Category = await getEntry('category', post.data.category.id);
 </style>
 
 <div
-  class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+  class="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
 >
-  <div class="inline-flex w-full space-x-3 p-1">
-    <div class="flex-auto self-start">
-      <AvatarText person={author}>
-        <p class="date">
-          <FormattedDate date={post.data.pubDate} />
-        </p>
-      </AvatarText>
+  <div class="relative start-0">
+    <!-- max-w-sm -->
+    <div class="overflow-hidden rounded-tr-lg">
+      <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>
+        <!-- width={720} height={360} -->
+        <img src={post.data.heroImage} alt="" alt="" />
+      </a>
     </div>
-    <div class="justify-self-end">
+
+    <div
+      class="absolute -bottom-3 -right-2 inline-flex space-x-3 rounded border-2 bg-white bg-opacity-75 p-1"
+    >
+      <div class="flex-auto self-start">
+        <AvatarText person={author} size="24">
+          <p class="date">
+            <FormattedDate date={post.data.pubDate} />
+          </p>
+        </AvatarText>
+      </div>
+    </div>
+    <div class="absolute -left-2 -top-2 flex-auto justify-self-end">
       <CategoryBadge category={category} />
     </div>
   </div>
-
-  <!-- max-w-sm -->
-  <!-- <div> -->
-  <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>
-    <!-- width={720} height={360} -->
-    <img src={post.data.heroImage} alt="" alt="" />
-  </a>
-  <!-- </div> -->
 
   <div class="p-5">
     <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>

@@ -1,14 +1,24 @@
-import { defineCollection, reference, z } from "astro:content";
-import { dateSchema, tagSchema, peopleSchema, categorySchema, postSchema, eventSchema } from '@/domain/types';
+import { defineCollection, reference, z } from 'astro:content';
+import {
+  dateSchema,
+  tagSchema,
+  peopleSchema,
+  categorySchema,
+  postSchema,
+  eventSchema,
+} from '@/domain/types';
 
 // TODO: tags/category schemas
 
 const tag = tagSchema;
-const category = categorySchema;
+const category = defineCollection({
+  type: 'data',
+  schema: categorySchema,
+});
 
 const people = defineCollection({
   type: 'data',
-  schema: peopleSchema
+  schema: peopleSchema,
 });
 
 // TODO: object type
@@ -21,15 +31,15 @@ const people = defineCollection({
 // });
 
 const posts = defineCollection({
-	type: "content",
-	// Type-check frontmatter using a schema
-	schema: postSchema,
+  type: 'content',
+  // Type-check frontmatter using a schema
+  schema: postSchema,
 });
 
 const events = defineCollection({
-  type: "content",
-  schema: eventSchema
-})
+  type: 'content',
+  schema: eventSchema,
+});
 
 // const tags = defineCollection({
 //   type: "content",
@@ -46,10 +56,10 @@ const events = defineCollection({
 // });
 
 export const collections = {
-  'people': people,
+  people: people,
   // 'roles': roles,
-  'posts': posts,
-  'events': events,
-  'tag': tag,
-  'category': category
+  posts: posts,
+  events: events,
+  tag: tag,
+  category: category,
 };

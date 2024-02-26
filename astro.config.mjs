@@ -18,8 +18,24 @@ const ASTRO_PORT = 4321;
 const iconConfig = {
   // changing included icons requires restarting astro
   include: {
+    // LICENSE: MIT
     flowbite: ['*'],
-    mdi: ['email-fast-outline'],
+    // LICENSE: APACHE 2.0
+    mdi: [
+      'email-fast-outline',
+      'saw-blade',
+      'wallet-membership',
+      'ruler-square',
+      'announcement-outline',
+      'printer-3d-nozzle-outline',
+      'people-outline',
+      'file-document-multiple-outline',
+    ],
+    // LICENSE: MIT
+    ph: ['circuitry-light'],
+    // LICENSE: MIT
+    'fluent-emoji-high-contrast': ['sewing-needle'],
+    // TODO: LICENCE: CC0 1.0
     'simple-icons': [
       'github',
       'calendar',
@@ -45,10 +61,5 @@ export default defineConfig({
   // base: process.env.CI
   //   ? '/site_root' : undefined,
 
-  integrations: [
-    mdx(),
-    sitemap(),
-    tailwind(),
-    icon(iconConfig),
-  ],
+  integrations: [mdx(), sitemap(), tailwind(), icon(iconConfig)],
 });

@@ -1,5 +1,5 @@
 ---
-author: aaron-mcphall
+author: david-conner
 title: First Public Meeting
 description: Join us at the South County Library on February 22nd at 6:00 PM.
 pubDate: 2024-01-31 0:00:00 -0400
@@ -17,22 +17,22 @@ Ready to unleash your inner innovator and be part of something groundbreaking?
 Then mark your calendars, because MAKE Roanoke's first public meeting is here! ️
 
 Join us at the South County Library on February 22nd at 6 PM as we officially
-launch our community of passionate makers.  This is your chance to:
+launch our community of passionate makers. This is your chance to:
 
-* **Get inside info:** Hear directly from the MAKE Roanoke founders about our
+- **Get inside info:** Hear directly from the MAKE Roanoke founders about our
   exciting plans and what the future holds for this vibrant initiative.
 
-* **Show us what you got:** Introduce yourself and share your current project to
+- **Show us what you got:** Introduce yourself and share your current project to
   the new MAKE Roanoke Community.
 
-* **Be inspired:** Meet other interesting MAKERs, spark ideas, and ignite your
+- **Be inspired:** Meet other interesting MAKERs, spark ideas, and ignite your
   imagination with the possibilities of a collaborative maker community.
 
-* **Be a part of it all:** Help shape the future of MAKE Roanoke and contribute
+- **Be a part of it all:** Help shape the future of MAKE Roanoke and contribute
   to building a space where creativity thrives.
 
 Whether you're a seasoned pro with a workshop full of gadgets or just starting
-out with a glue gun and boundless enthusiasm, everyone is welcome!  This is a
+out with a glue gun and boundless enthusiasm, everyone is welcome! This is a
 space for learning, sharing, and supporting each other as we bring our unique
 ideas to life.
 

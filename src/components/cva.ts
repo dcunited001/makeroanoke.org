@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'astro/types';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export const button = cva('font-semibold shadow-md capitalize', {
+export const buttonCVA = cva('font-semibold shadow-md capitalize', {
   variants: {
     intent: {
       primary: [

@@ -1,5 +1,6 @@
 ---
 import PostCard from '@/components/post/Card.astro';
+import PostCardInset from '@/components/post/CardInset.astro';
 import { type CollectionEntry } from 'astro:content';
 
 type Props = {
@@ -25,7 +26,14 @@ const { posts } = Astro.props;
   <div class="title">
     <!-- <h1>{title}</h1> -->
   </div>
-  <section class="grid md:grid-cols-2 grid-cols-1 gap-3">
-    {posts.map((post) => <PostCard post={post} />)}
+  <section class="grid grid-cols-1 gap-3 md:grid-cols-2">
+    {
+      posts.map((post) => (
+        <>
+          <PostCard post={post} />
+          <PostCardInset post={post} />
+        </>
+      ))
+    }
   </section>
 </article>
