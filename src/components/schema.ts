@@ -47,6 +47,7 @@ let navbarConf: NavbarConfig = {
         { link: '/guilds/fabrics', label: 'Fabrics' },
         { link: '/guilds/woodworking', label: 'Woodworking' },
         { link: '/guilds/metal-shop', label: 'Metal Shop' },
+        { link: '/guilds/electronics', label: 'Electronics' },
       ],
     },
     {
