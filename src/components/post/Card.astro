@@ -31,7 +31,7 @@ const category: Category = await getEntry('category', post.data.category.id);
 </style>
 
 <div
-  class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+  class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow"
 >
   <div class="inline-flex w-full space-x-3 p-1">
     <div class="flex-auto self-start">
@@ -57,19 +57,19 @@ const category: Category = await getEntry('category', post.data.category.id);
   <div class="p-2">
     <a href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}>
       <h5
-        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
       >
         {post.data.title}
       </h5>
     </a>
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+    <p class="mb-3 font-normal text-gray-700">
       {post.data.description}
     </p>
 
     <!-- mt-auto doesn't adjust height, which is set by  -->
     <Link
       href={`/posts/${post.data.year}/${post.data.month}/${post.slug}/`}
-      intent="secondary"
+      intent="primary"
       size="md"
       _content="textAndIcon"
     >
