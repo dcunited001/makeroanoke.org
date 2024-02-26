@@ -1,4 +1,19 @@
 /** @type {import('tailwindcss').Config} */
+
+// base-color:        #BEA812   hsl(52, 83%, 41%)
+// accent-color:                hsl(52, 100%, 81%)
+//                    #BE3012   hsl(10, 83%, 41%)   ACTUAL
+// text-color:        #051831   hsl(214, 81%, 11%)
+// background-color:            hsl(215, 46%, 69%)
+//                    #FEFAEC   hsl(47, 90%, 96%)   ACTUAL
+// border-color:                hsla(215, 49%, 8%, 0.5)
+
+const baseColor = '52deg 83% 41%';
+const accent2Color = '10deg 83% 41%';
+const textColor = '214deg 81% 11%';
+const bkgColor = '47deg 90% 96%';
+// const borderColor = 'hsla(215, 49%, 8%, 0.5)';
+
 export default {
   content: [
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
@@ -9,32 +24,6 @@ export default {
       textDecoration: ['active'],
       transitionProperty: {
         width: 'width',
-      },
-      colors: {
-        accent: {
-          1: 'hsl(288 95.8% 90.6%)',
-          2: 'hsl(168 83.8% 78.2%)',
-        },
-        bkg: 'hsl(210 40% 98%)',
-        content: 'hsl(217 32.6% 17.5%)',
-
-        // NOTE: use with bg-navy, etc
-        white: 'hsl(var(--color-white))',
-        navy: 'hsl(var(--color-navy))',
-        wood: 'hsl(var(--color-wood))',
-        metal: 'hsl(var(--color-metal))',
-        fabric: 'hsl(var(--color-fabric))',
-        electronics: 'hsl(var(--color-electronics))',
-        printing: 'hsl(var(--color-printing))',
-
-        // TODO: set a default for alpha value
-        // white: 'hsl(var(--color-white)) / <alpha-value>',
-        // navy: 'hsl(var(--color-navy)) / <alpha-value>',
-        // wood: 'hsl(var(--color-wood)) / <alpha-value>',
-        // metal: 'hsl(var(--color-metal)) / <alpha-value>',
-        // fabric: 'hsl(var(--color-fabric)) / <alpha-value>',
-        // electronics: 'hsl(var(--color-electronics)) / <alpha-value>',
-        // printing: 'hsl(var(--color-printing)) / <alpha-value>'
       },
 
       fontFamily: {
@@ -83,8 +72,37 @@ export default {
           'monospace',
         ],
       },
+
+      colors: {
+        primary: 'hsl(var(--color-primary))',
+        accent: {
+          1: 'hsl(var(--color-accent1))',
+          2: 'hsl(var(--color-accent2))',
+        },
+        bkg: 'hsl(var(--color-bkg))',
+        content: 'hsl(var(--color-content))',
+
+        // NOTE: use with bg-navy, etc
+        white: 'hsl(var(--color-white))',
+        navy: 'hsl(var(--color-navy))',
+        wood: 'hsl(var(--color-wood))',
+        metal: 'hsl(var(--color-metal))',
+        fabric: 'hsl(var(--color-fabric))',
+        electronics: 'hsl(var(--color-electronics))',
+        printing: 'hsl(var(--color-printing))',
+
+        // TODO: set a default for alpha value
+        // white: 'hsl(var(--color-white)) / <alpha-value>',
+        // navy: 'hsl(var(--color-navy)) / <alpha-value>',
+        // wood: 'hsl(var(--color-wood)) / <alpha-value>',
+        // metal: 'hsl(var(--color-metal)) / <alpha-value>',
+        // fabric: 'hsl(var(--color-fabric)) / <alpha-value>',
+        // electronics: 'hsl(var(--color-electronics)) / <alpha-value>',
+        // printing: 'hsl(var(--color-printing)) / <alpha-value>'
+      },
     },
   },
+
   plugins: [
     require('flowbite/plugin'),
     require('flowbite-typography'),
@@ -95,9 +113,10 @@ export default {
     ({ addComponents, theme }) => {
       addComponents({
         ':root': {
-          '--color-bkg': '210deg 40% 98%',
-          '--color-content': '217deg 32.6% 17.5%',
-          '--color-accent1': '288deg 95.8% 90.6%',
+          '--color-bkg': bkgColor,
+          '--color-content': textColor,
+          '--color-primary': baseColor,
+          '--color-accent1': accent2Color,
           '--color-accent2': '186deg 83.8% 78.2%',
           '--color-white': '0deg 0% 100%',
           '--color-navy': '222deg 75% 15%',
@@ -110,10 +129,11 @@ export default {
         // TODO: set color variables for dark theme
         '@media (prefers-color-scheme:dark)': {
           ':root': {
-            '--color-bkg': '217deg 32.6% 17.5%',
-            '--color-content': '210deg 40% 98%',
-            '--color-accent1': '288deg 95.8% 60.6%',
-            '--color-accent2': '186deg 83.8% 48.2%',
+            '--color-bkg': bkgColor,
+            '--color-content': textColor, // (textColor + 7⁰) + 80 light
+            '--color-primary': baseColor,
+            '--color-accent1': accent2Color, // accentColor - 30 light
+            '--color-accent2': '186deg 83.8% 48.2%', // accentColor - 30 light
             '--color-white': '0deg 0% 100%',
             '--color-navy': '222deg 75% 15%',
             '--color-wood': '24deg 100% 55%',
