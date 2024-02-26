@@ -5,8 +5,26 @@ import type { NavbarConfig } from '@/components/schema';
 import Layout from '@/layouts/Base.astro';
 import { loadAndFormatCollection } from '@/lib/utils.ts';
 
+import { decorateWithDate, sortPostsByDate } from '@/domain/post';
+import { type Post } from '@/domain/types/index';
+import { getCollection } from 'astro:content';
+
 const pageTitle = 'Posts';
 const pageDescription = 'Articles from makers in Roanoke.';
+
+// TODO convert to use Post.decorateWithDate (fix dependent post.data references ...)
+const postEntries = await getCollection('posts');
+const _posts = decorateWithDate(
+  postEntries.map<Post>((post) => ({
+    ...post.data,
+    slug: post.slug,
+  })),
+);
+
+const sorted = sortPostsByDate(_posts);
+
+// const sorted = sortPostsByDate(
+// const postEntries = await getCollection('posts')
 
 const posts = (await loadAndFormatCollection('posts')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
