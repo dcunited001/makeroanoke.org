@@ -1,0 +1,29 @@
+---
+import Layout from '@/layouts/Base.astro';
+import { Icon } from 'astro-icon/components';
+
+//const intents = [undefined, 'primary', 'secondary', 'soft'];
+const webSizes = [24, 32, 48, 64];
+const webIcons = ['wood', 'fabric'];
+
+const title = 'MAKE Roanoke Icons';
+const description = 'SVG Icons';
+---
+
+<Layout title={title} description={description}>
+  <h2>{title}</h2>
+  {
+    webSizes.map((size) => (
+      <div class="flex">
+        <span class="text- h-full">
+          {size}x{size}
+        </span>
+        {webIcons.map((icon, i) => (
+          <span class="m-2 rounded-md border-slate-500 bg-slate-200 p-1">
+            <Icon name={icon} size={size} />
+          </span>
+        ))}
+      </div>
+    ))
+  }
+</Layout>
