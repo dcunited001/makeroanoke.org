@@ -7,7 +7,8 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
-
+import sentry from '@sentry/astro';
+import spotlightjs from '@spotlightjs/astro';
 const ASTRO_PORT = 4321;
 
 // https://docs.astro.build/en/reference/cli-reference/#astro-telemetry
@@ -61,5 +62,12 @@ export default defineConfig({
   // base: process.env.CI
   //   ? '/site_root' : undefined,
 
-  integrations: [mdx(), sitemap(), tailwind(), icon(iconConfig)],
+  integrations: [
+    mdx(),
+    sitemap(),
+    tailwind(),
+    icon(iconConfig),
+    sentry(),
+    spotlightjs(),
+  ],
 });

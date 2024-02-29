@@ -33,6 +33,8 @@
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/ts-plugin": "^1.5.2",
     "@iconify/types": "^2.0.0",
+    "@sentry/astro": "^7.103.0",
+    "@spotlightjs/astro": "^1.0.16",
     "astro": "^4.3.7",
     "astro-icon": "^1.1.0",
     "class-variance-authority": "^0.7.0",
