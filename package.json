@@ -23,7 +23,9 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "iconify:fetch": "node --loader ts-node/esm scripts/iconifyFetch.ts -- 'src/assets/icons/flowbite'"
+    "iconify:fetch": "node --loader ts-node/esm scripts/iconifyFetch.ts -- 'src/assets/icons/flowbite'",
+    "svgo:mkroa:lg": "svgo -f ./svg/mkroa/lg -o ./public/icons",
+    "svgo:mkroa:web": "svgo --config svgo.web.config.cjs -f ./svg/mkroa/web -o ./src/icons"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.4",
