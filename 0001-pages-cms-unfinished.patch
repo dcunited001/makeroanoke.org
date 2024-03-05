@@ -1,0 +1,203 @@
+diff --git a/.pages.yml b/.pages.yml
+index 27bcb53..d6e5bda 100644
+--- a/.pages.yml
++++ b/.pages.yml
+@@ -1,3 +1,33 @@
++# $schema: https://frontmatter.codes/frontmatter.schema.json
++# frontMatter.framework.id: astro
++# frontMatter.framework.startCommand:
++#   npm run dev -- --site 'http://127.0.0.1:4321'
++#   --host '127.0.0.1' --port=4321
++# frontMatter.preview.host: http://127.0.0.1:4321
++# frontMatter.content.publicFolder: public
++# frontMatter.content.autoUpdateDate: false
++# frontMatter.content.fmHighlight: true
++# frontMatter.dashboard.content.card.fields.title: title
++# frontMatter.dashboard.content.card.fields.description: description
++# frontMatter.dashboard.content.card.fields.state: true
++
++# - name:
++#   type:
++#   label:
++#   description:
++#   default:
++#   list: bool/object
++#   hidden: bool
++#   required:
++#   pattern:
++#   options:
++
++# - name:
++#   type:
++#   label:
++#   description:
++#   default:
++#   required: true
+ content:
+   - name: categories
+     label: Categories
+@@ -32,3 +62,164 @@ content:
+           message: "The format is 'icon-set:icon-name'. If the icon-set: is blank, then it is assumed this is a custom icon found in 'src/icons'"
+           regex: '([a-z]+-)*[a-z]+[:]?([a-z]+-)*[a-z]+'
+ 
++  - name: people
++    Label: People
++    path: src/content/people
++    type: collection
++    format: yaml
++    subfolders: false
++    fields:
++      - name: id
++        type: string
++        label: ID
++        description: For Astro, must match the filename without the extension.
++        required: true
++        pattern:
++          message: 'The ID for a person must include lowercase letters and hyphens only. It must start and end with a lowercase letter.'
++          regex: '[a-z][a-z-]*[a-z]'
++      - name: uuid
++        type: string
++        label: UUID
++        description: For Astro, the UUID must use hexidecimal in this format de74b24b-1374-40b4-8445-88861b073dac
++        required: true
++        pattern:
++          message: 'This must be a valid UUID. It must use hexidecimal with sequences of 8-4-4-4-12 characters separated by dashes.'
++          regex: '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'
++      - name: name
++        type: string
++        label: Name
++        description: The person's name. There is no validation, but please format the name with capitalization and titles as it should appear in content.
++        required: true
++        # pattern: regexp
++      - name: bio
++        type: string
++        label: Bio
++        description: 'TODO: This field is not currently used, but will may have length and formatting rules in the future.'
++        required: false
++        # pattern: regexp
++      - name: headshot
++        type: image
++        label: Headshot
++        description: 'This image will be used for avatars. It should be a small & square JPEG or PNG with dimensions at least 128x128.'
++        required: true
++        options:
++          input: public/img/people
++          output: public/img/people
++          extensions: ['jpg', 'jpeg', 'png']
++
++  - name: posts
++    label: Posts
++    path: src/content/posts
++    format: yaml-frontmatter
++    type: collection
++    subfolders: false
++    fields:
++      - { name: title, label: Title, type: string, required: true }
++      - name: description
++        label: Description
++        type: string
++        required: true
++        options:
++          minlength: 20
++          maxlength: 160
++      - name: draft
++        label: Draft?
++        type: boolean
++        default: true
++      - name: heroImage
++        label: Hero Image
++        type: image
++        description: 'This image is used as a preview in lists and as a banner image at the top of a post. Please ask a developer for hero image requirements like format and dimension.'
++        required: true
++        options:
++          input: public/img/posts
++          output: public/img/posts
++          # TODO: update posts heroimage path
++          extensions: ['jpg', 'jpeg', 'png']
++      - name: Author
++        label: Author
++        type: people
++        description: The category name as it will appear in CMS menus. This is an ID and must be lowercase with hyphens only.
++        required: true
++      - name: pubDate
++        type: date
++        label: Publishing date
++        default: '{{now}}'
++        # isPublishDate: true
++        # TODO format
++      - name: tags
++        label: Tags
++        type: string
++        list:
++          - min: 1
++            max: 5
++      - name: category
++        label: Category
++        description: Must be a valid category.
++        # type: categories (object nesting?)
++        type: string
++    view:
++      fields: [title, author.name]
++      sort: [pubDate, title]
++
++  - name: events
++    path: src/content/events
++    type: collection
++    format: yaml-frontmatter
++    subfolders: false
++    fields:
++      - { name: title, label: Title, type: string, required: true }
++      - name: description
++        label: Description
++        type: string
++        required: true
++        options:
++          minlength: 20
++          maxlength: 160
++      - name: draft
++        label: Draft?
++        type: boolean
++        default: true
++      - name: heroImage
++        label: Hero Image
++        type: image
++        description: 'This image is used as a preview in lists and as a banner image at the top of a post. Please ask a developer for hero image requirements like format and dimension.'
++        required: true
++        options:
++          input: public/img/events
++          output: public/img/events
++          # TODO: update events heroimage path (page bundle or path restrictions?)
++          extensions: ['jpg', 'jpeg', 'png']
++      - name: eventDate
++        label: Event Date
++        type: datetime
++        required: true
++      - name: eventStartTime
++        label: Event Start Time
++        type: datetime
++        required: true
++      - name: eventEndTime
++        label: Event End Time
++        type: datetime
++        required: true
++      - name: author
++        label: Author
++        type: dataFile
++        required: true
++      - name: pubDate
++        label: Publishing date
++        type: datetime
++        required: true
++        default: '{{now}}'
++        # isPublishDate: true
++      - name: tags
++        label: Tags
++        type: string
++        list:
++          - min: 1
++            max: 5
++      - name: category
++        label: Category
++        description: Must be a valid category.
++        # type: categories (object nesting?)
++        type: string
