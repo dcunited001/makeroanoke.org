@@ -3,6 +3,8 @@ content:
     label: Categories
     path: src/content/category
     type: collection
+    extension: yml
+    filename: fields.name
     format: yaml
     subfolders: false
     fields:
