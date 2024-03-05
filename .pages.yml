@@ -1,0 +1,32 @@
+content:
+  - name: categories
+    label: Categories
+    path: src/content/category
+    type: collection
+    format: yaml
+    subfolders: false
+    fields:
+      - name: name
+        type: string
+        label: Name
+        description: The category name as it will appear in CMS menus. This is an ID and must be lowercase with hyphens only.
+        required: true
+        pattern:
+          regex: '([a-z]+-)*[a-z]+'
+      - name: color
+        type: string
+        label:
+        description: This must be the name of a color in our Tailwind theme. Please ask a developer if you are unsure.
+        required: true
+        pattern:
+          message: This must be a series of hyphenated-lowercase-words. The validation will not catch invalid tailwind classes.
+          regex: '([a-z]+-)*[a-z]+'
+      - name: icon
+        type: string
+        label: Icon
+        description: This is the name of an icon in an icon set. The icon must be included in astro.config.mjs. Please ask a developer if you are unsure.
+        required: true
+        pattern:
+          message: "The format is 'icon-set:icon-name'. If the icon-set: is blank, then it is assumed this is a custom icon found in 'src/icons'"
+          regex: '([a-z]+-)*[a-z]+[:]?([a-z]+-)*[a-z]+'
+
