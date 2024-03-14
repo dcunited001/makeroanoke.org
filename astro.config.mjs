@@ -63,9 +63,9 @@ export default defineConfig({
   //   ? '/site_root' : undefined,
 
   integrations: [
+    tailwind(),
     mdx(),
     sitemap(),
-    tailwind(),
     icon(iconConfig),
     sentry(),
     spotlightjs(),

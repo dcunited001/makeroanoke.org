@@ -1,0 +1,63 @@
+---
+import Badge from '@/components/Badge.astro';
+import Layout from '@/layouts/Base.astro';
+import { Icon } from 'astro-icon/components';
+// import { Icon } from 'astro-icon/components';
+
+const colors = [
+  'bg-red-500',
+  'bg-lime-500',
+  'bg-orange-500',
+  'bg-teal-500',
+  'bg-yellow-500',
+  'bg-violet-500',
+  'bg-green-500',
+];
+
+const themeColors = [
+  ['Primary', 'bg-primary'],
+  ['Accent 1', 'bg-accent-1'],
+  ['Accent 2', 'bg-accent-2'],
+  ['BKG', 'bg-bkg'],
+  ['Content', 'bg-content'],
+  ['wood', 'bg-wood'],
+  ['metal', 'bg-metal'],
+  ['fabric', 'bg-fabric'],
+  ['electronics', 'bg-electronics'],
+  ['printing', 'bg-printing'],
+  // ['navy', 'bg-navy'],
+];
+
+// import { badgeVariants } from '@/components/cva';
+// const variants: typeof badgeVariants = ['default', 'secondary', 'destructive', 'outline'];
+const variants = ['default', 'secondary', 'destructive', 'outline'];
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <h2 class="m-3">ShadCN UI: Badge</h2>
+  {
+    variants.map((variant) => (
+        // <h4 class="m-3 capitalize">{variant}</h4>
+        <!-- Array destructuring -->
+      <div class="inline-grid grid-cols-3 gap-4 m-2 p-2 rounded-lg bg-neutral-300">
+
+        <div class="col-span-3 capitalize">{variant}</div>
+        {themeColors.map(([title, color], i) => (
+          <Badge
+            {...(variant && { variant })}
+            class:list={[color, `hover:${color}/80`, 'mx-0.5']}
+          >
+            {variant === 'destructive' && <Icon name="flowbite:x-outline" />}
+            {title}
+          </Badge>
+        ))}
+      </div>
+    ))
+  }
+
+  <h3 class="m-3">Misc Colors</h3>
+  {colors.map((color) => <Badge class:list={[color, 'mx-0.5']}>{color}</Badge>)}
+
+</Layout>

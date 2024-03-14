@@ -74,31 +74,39 @@ export default {
       },
 
       colors: {
-        primary: 'hsl(var(--color-primary))',
+        primary: 'hsl(var(--color-primary) / <alpha-value>)',
         accent: {
-          1: 'hsl(var(--color-accent1))',
-          2: 'hsl(var(--color-accent2))',
+          1: 'hsl(var(--color-accent1) / <alpha-value>)',
+          2: 'hsl(var(--color-accent2) / <alpha-value>)',
         },
-        bkg: 'hsl(var(--color-bkg))',
-        content: 'hsl(var(--color-content))',
+        bkg: 'hsl(var(--color-bkg) / <alpha-value>)',
+        content: 'hsl(var(--color-content) / <alpha-value>)',
 
         // NOTE: use with bg-navy, etc
-        white: 'hsl(var(--color-white))',
-        navy: 'hsl(var(--color-navy))',
-        wood: 'hsl(var(--color-wood))',
-        metal: 'hsl(var(--color-metal))',
-        fabric: 'hsl(var(--color-fabric))',
-        electronics: 'hsl(var(--color-electronics))',
-        printing: 'hsl(var(--color-printing))',
+        navy: 'hsl(var(--color-navy) / <alpha-value>)',
+        wood: 'hsl(var(--color-wood) / <alpha-value>)',
+        metal: 'hsl(var(--color-metal) / <alpha-value>)',
+        fabric: 'hsl(var(--color-fabric) / <alpha-value>)',
+        electronics: 'hsl(var(--color-electronics) / <alpha-value>)',
+        printing: 'hsl(var(--color-printing) / <alpha-value>)',
 
         // TODO: set a default for alpha value
-        // white: 'hsl(var(--color-white)) / <alpha-value>',
         // navy: 'hsl(var(--color-navy)) / <alpha-value>',
         // wood: 'hsl(var(--color-wood)) / <alpha-value>',
         // metal: 'hsl(var(--color-metal)) / <alpha-value>',
         // fabric: 'hsl(var(--color-fabric)) / <alpha-value>',
         // electronics: 'hsl(var(--color-electronics)) / <alpha-value>',
         // printing: 'hsl(var(--color-printing)) / <alpha-value>'
+      },
+      hueRotate: {
+        // included: 0, 15, 30, 60, 90, 180
+        120: '120deg',
+        150: '150deg',
+        210: '210deg',
+        240: '240deg',
+        270: '270deg',
+        300: '300deg',
+        330: '330deg',
       },
     },
   },
@@ -108,8 +116,9 @@ export default {
     require('flowbite-typography'),
     require('tailwind-scrollbar')({ nocompatible: true }),
 
-    // fetching dark mode from user's preferences
-    // https://www.youtube.com/watch?v=WTchW0LdWL0
+    // fetching dark mode from users preferences
+    // + video: https://www.youtube.com/watch?v=WTchW0LdWL0
+    // + https://github.com/coding-in-public/tailwind-darkmode/compare/main...custom-darkmode
     ({ addComponents, theme }) => {
       addComponents({
         ':root': {
@@ -118,7 +127,6 @@ export default {
           '--color-primary': baseColor,
           '--color-accent1': accent2Color,
           '--color-accent2': '186deg 83.8% 78.2%',
-          '--color-white': '0deg 0% 100%',
           '--color-navy': '222deg 75% 15%',
           '--color-wood': '24deg 100% 55%',
           '--color-metal': '220deg 94% 51%',
@@ -134,7 +142,6 @@ export default {
             '--color-primary': baseColor,
             '--color-accent1': accent2Color, // accentColor - 30 light
             '--color-accent2': '186deg 83.8% 48.2%', // accentColor - 30 light
-            '--color-white': '0deg 0% 100%',
             '--color-navy': '222deg 75% 15%',
             '--color-wood': '24deg 100% 55%',
             '--color-metal': '220deg 94% 51%',

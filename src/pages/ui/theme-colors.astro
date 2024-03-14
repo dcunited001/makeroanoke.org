@@ -1,0 +1,112 @@
+---
+import Badge from '@/components/Badge.astro';
+import Layout from '@/layouts/Base.astro';
+// import { Icon } from 'astro-icon/components';
+
+const hueShifts = Array.from({ length: 12 }, (v, i) => {
+  return (i * 150) % 360;
+});
+
+const themeColors = [
+  ['Primary', 'bg-primary'],
+  ['Accent 1', 'bg-accent-1'],
+  ['Accent 2', 'bg-accent-2'],
+  ['BKG', 'bg-bkg'],
+  ['Content', 'bg-content'],
+  ['wood', 'bg-wood'],
+  ['metal', 'bg-metal'],
+  ['fabric', 'bg-fabric'],
+  ['electronics', 'bg-electronics'],
+  ['printing', 'bg-printing'],
+  // ['navy', 'bg-navy'],
+];
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <h3 class="m-3">Alpha Values</h3>
+  <div class="m-2 inline-grid grid-cols-3 gap-4 rounded-lg bg-neutral-300 p-2">
+    <div>bg-color-name opacity-100</div>
+    <div>bg-color-name opacity-80</div>
+    <div>bg-color-name opacity-60</div>
+    {
+      themeColors.map(([title, color], index) => (
+        <>
+          <Badge
+            class:list={[
+              `${color}`,
+              'opacity-100',
+              `hover:opacity-60`,
+              `hover:${color}`,
+              'transition-opacity',
+              'mx-0.5',
+            ]}
+          >
+            {color}
+          </Badge>
+          <Badge
+            class:list={[
+              `${color}`,
+              'opacity-80',
+              `hover:opacity-80`,
+              `hover:${color}`,
+              'transition-opacity',
+              'mx-0.5',
+            ]}
+          >
+            {color}
+          </Badge>
+          <Badge
+            class:list={[
+              `${color}`,
+              'opacity-60',
+              `hover:opacity-100`,
+              `hover:${color}`,
+              'transition-opacity',
+              'mx-0.5',
+            ]}
+          >
+            {color}
+          </Badge>
+        </>
+      ))
+    }
+  </div>
+
+  <h3 class="m-3">Hue-shifted</h3>
+  {
+    hueShifts.map((hue) => (
+      <Badge
+        class:list={[
+          'bg-red-300',
+          `hue-rotate-${hue}`,
+          `hover:hue-rotate-${hue}`,
+          'mx-0.5',
+        ]}
+      >
+        {hue}&deg;
+      </Badge>
+    ))
+  }
+  <!--
+    tailwind classes must appear in the source code as raw strings.
+    once they do, the classes can be used programmatically.
+
+    hue-rotate-15 won't be added to main.css -->
+
+  <div class="invisible bg-red-500">
+    <div class="inline-flex bg-inherit hue-rotate-0">0&deg;</div>
+    <div class="inline-flex bg-inherit hue-rotate-30">30&deg;</div>
+    <div class="inline-flex bg-inherit hue-rotate-60">60&deg;</div>
+    <div class="inline-flex bg-inherit hue-rotate-90">90&deg;</div>
+    <div class="hue-rotate-120 inline-flex bg-inherit">120&deg;</div>
+    <div class="hue-rotate-150 inline-flex bg-inherit">150&deg;</div>
+    <div class="inline-flex bg-inherit hue-rotate-180">180&deg;</div>
+    <div class="hue-rotate-210 inline-flex bg-inherit">210&deg;</div>
+    <div class="hue-rotate-240 inline-flex bg-inherit">240&deg;</div>
+    <div class="hue-rotate-270 inline-flex bg-inherit">270&deg;</div>
+    <div class="hue-rotate-300 inline-flex bg-inherit">300&deg;</div>
+    <div class="hue-rotate-330 inline-flex bg-inherit">330&deg;</div>
+  </div>
+</Layout>

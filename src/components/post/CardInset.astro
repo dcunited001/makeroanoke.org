@@ -53,7 +53,7 @@ const category: Category = await getEntry('category', post.data.category.id);
       </div>
     </div>
     <div class="absolute -left-2 -top-2 flex-auto justify-self-end">
-      <CategoryBadge category={category} _content="textAndIcon" />
+      <CategoryBadge category={category.data} _content="textAndIcon" />
     </div>
   </div>
 

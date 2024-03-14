@@ -40,7 +40,7 @@ const category: Category = await getEntry('category', post.data.category.id);
       </AvatarText>
     </div>
     <div class="justify-self-end">
-      <CategoryBadge category={category} _content="textAndIcon" />
+      <CategoryBadge category={category.data} _content="textAndIcon" />
     </div>
   </div>
 

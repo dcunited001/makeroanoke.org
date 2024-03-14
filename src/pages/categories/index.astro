@@ -1,29 +1,35 @@
 ---
 // TODO: the usage of type "categories" is wrong
-import { categories } from '@/content/config';
 import Layout from '@/layouts/Base.astro';
-import { isNotNull } from '@/lib/utils';
+import { Debug } from 'astro/components';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const allPosts = await Astro.glob('../../content/posts/*.md');
-const allEvents = await Astro.glob('../../content/events/*.md');
+// const allPosts = await Astro.glob('../../content/posts/*.md');
+// const allEvents = await Astro.glob('../../content/events/*.md');
 
-const postCategories: categories = allPosts
-  .map((post) => post.frontmatter.category)
-  .flat();
-const eventCategories: categories = allEvents
-  .map((event) => event.frontmatter.category)
-  .flat();
+// TODO: select categories from data collection
+// const postCategories: categories = allPosts
+//   .map((post) => post.frontmatter.category)
+//   .flat();
+// const eventCategories: categories = allEvents
+//   .map((event) => event.frontmatter.category)
+//   .flat();
 
-const uniqCategories = [...new Set(postCategories.concat(eventCategories))]
-  .filter(isNotNull)
-  .sort();
+// const uniqCategories = [...new Set(postCategories.concat(eventCategories))]
+//   .filter(isNotNull)
+//   .sort();
 
 const pageTitle = 'Tag Index';
 
 // TODO: interface is unused
 type Props = {
-  categories: categories;
+  categories: CollectionEntry<'category'>;
 };
+
+const categories = (await getCollection('category')).map((cat) => {
+  // return cat.data;
+  return cat.data;
+});
 
 const bgColor = 'bg-blue-100';
 const textColor = 'text-blue-800';
@@ -33,16 +39,11 @@ const textColor = 'text-blue-800';
   <div>
     <ul>
       {
-        uniqCategories.map((category) => (
-          <li>
-            <span
-              class={`me-2 rounded px-2.5 py-0.5 text-xs font-medium ${bgColor} ${textColor}`}
-            >
-              <a class="text-blue-400" href={`/categories/${category}`}>
-                {category}
-              </a>
-            </span>
-          </li>
+        categories.map((category) => (
+          <Debug {category} />
+          // <li>
+          //   <CategoryBadge category={category} _content="textAndIcon" />
+          // </li>
         ))
       }
     </ul>

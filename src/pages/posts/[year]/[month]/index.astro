@@ -20,6 +20,7 @@ const pageDescription = 'Articles from makers in Roanoke.';
 const params = Astro.params;
 
 // TODO: refactor repetition for year/month (also in utils.js)
+// const posts = sortPostsByDate(await getCollection('posts'))
 const posts = (await getCollection('posts'))
   .filter((p) => p.data.pubDate.getFullYear().toString() == params.year)
   .filter(
