@@ -28,34 +28,36 @@
     "svgo:mkroa:web": "svgo --config svgo.web.config.cjs -f ./svg/mkroa/web -o ./src/icons"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.4",
-    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/check": "^0.5.8",
+    "@astrojs/mdx": "^2.2.0",
     "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/ts-plugin": "^1.5.2",
+    "@astrojs/ts-plugin": "^1.6.0",
     "@iconify/types": "^2.0.0",
-    "@sentry/astro": "^7.103.0",
+    "@sentry/astro": "^7.106.1",
     "@spotlightjs/astro": "^1.0.16",
-    "astro": "^4.3.7",
+    "astro": "^4.5.2",
     "astro-icon": "^1.1.0",
+    "astro-tailwind-config-viewer": "^1.0.3",
     "class-variance-authority": "^0.7.0",
-    "cssnano": "^6.0.5",
+    "cssnano": "^6.1.0",
     "flowbite": "^2.3.0",
     "flowbite-typography": "^1.0.3",
     "postcss": "^8.4.35",
+    "tailwind-merge": "^2.2.1",
     "tailwind-scrollbar": "^3.1.0",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
-    "@iconify-json/flowbite": "^1.1.1",
+    "@biomejs/biome": "1.6.1",
+    "@iconify-json/flowbite": "^1.1.2",
     "@iconify-json/fluent-emoji-high-contrast": "^1.1.15",
     "@iconify-json/mdi": "^1.1.64",
     "@iconify-json/ph": "^1.1.11",
-    "@iconify-json/simple-icons": "^1.1.91",
+    "@iconify-json/simple-icons": "^1.1.95",
     "@iconify/tools": "^4.0.2",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.11"
+    "prettier-plugin-tailwindcss": "^0.5.12"
   }
 }
