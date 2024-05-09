@@ -14,6 +14,12 @@ const textColor = '214deg 81% 11%';
 const bkgColor = '47deg 90% 96%';
 // const borderColor = 'hsla(215, 49%, 8%, 0.5)';
 
+const withAlphaValue = (cssVar) => `hsl(var(--${cssVar})) / <alpha-value>)`;
+
+import flowbitePlugin from 'flowbite/plugin';
+import flowbiteTypography from 'flowbite-typography';
+import tailwindScrollbar from 'tailwind-scrollbar';
+
 export default {
   content: [
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
@@ -74,29 +80,29 @@ export default {
       },
 
       colors: {
-        primary: 'hsl(var(--color-primary) / <alpha-value>)',
+        primary: withAlphaValue('color-primary'),
         accent: {
-          1: 'hsl(var(--color-accent1) / <alpha-value>)',
-          2: 'hsl(var(--color-accent2) / <alpha-value>)',
+          1: withAlphaValue('color-accent1'),
+          2: withAlphaValue('color-accent2'),
         },
-        bkg: 'hsl(var(--color-bkg) / <alpha-value>)',
-        content: 'hsl(var(--color-content) / <alpha-value>)',
+        bkg: withAlphaValue('color-bkg'),
+        content: withAlphaValue('color-content'),
 
         // NOTE: use with bg-navy, etc
-        navy: 'hsl(var(--color-navy) / <alpha-value>)',
-        wood: 'hsl(var(--color-wood) / <alpha-value>)',
-        metal: 'hsl(var(--color-metal) / <alpha-value>)',
-        fabric: 'hsl(var(--color-fabric) / <alpha-value>)',
-        electronics: 'hsl(var(--color-electronics) / <alpha-value>)',
-        printing: 'hsl(var(--color-printing) / <alpha-value>)',
+        navy: withAlphaValue('color-navy'),
+        wood: withAlphaValue('color-wood'),
+        metal: withAlphaValue('color-metal'),
+        fabric: withAlphaValue('color-fabric'),
+        electronics: withAlphaValue('color-electronics'),
+        printing: withAlphaValue('color-printing'),
 
         // TODO: set a default for alpha value
-        // navy: 'hsl(var(--color-navy)) / <alpha-value>',
-        // wood: 'hsl(var(--color-wood)) / <alpha-value>',
-        // metal: 'hsl(var(--color-metal)) / <alpha-value>',
-        // fabric: 'hsl(var(--color-fabric)) / <alpha-value>',
-        // electronics: 'hsl(var(--color-electronics)) / <alpha-value>',
-        // printing: 'hsl(var(--color-printing)) / <alpha-value>'
+        // navy: withAlphaValue('color-navy'),
+        // wood: withAlphaValue('color-wood'),
+        // metal: withAlphaValue('color-metal'),
+        // fabric: withAlphaValue('color-fabric'),
+        // electronics: withAlphaValue('color-electronics'),
+        // printing: withAlphaValue('color-printing'),
       },
       hueRotate: {
         // included: 0, 15, 30, 60, 90, 180
@@ -112,10 +118,9 @@ export default {
   },
 
   plugins: [
-    require('flowbite/plugin'),
-    require('flowbite-typography'),
-    require('tailwind-scrollbar')({ nocompatible: true }),
-
+    flowbitePlugin,
+    flowbiteTypography,
+    tailwindScrollbar({ nocompatible: true }),
     // fetching dark mode from users preferences
     // + video: https://www.youtube.com/watch?v=WTchW0LdWL0
     // + https://github.com/coding-in-public/tailwind-darkmode/compare/main...custom-darkmode

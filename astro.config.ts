@@ -9,6 +9,8 @@ import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import sentry from '@sentry/astro';
 import spotlightjs from '@spotlightjs/astro';
+
+import tailwindConfigViewer from 'astro-tailwind-config-viewer';
 const ASTRO_PORT = 4321;
 
 // https://docs.astro.build/en/reference/cli-reference/#astro-telemetry
@@ -54,6 +56,14 @@ const iconConfig = {
   },
 };
 
+const twConfig = './tailwind.config.mjs';
+
+const twViewer = {
+  configFile: twConfig,
+  endpoint: '/tailwind',
+  overlayMode: 'embed',
+};
+
 // https://astro.build/config
 export default defineConfig({
   site: process.env.CI
@@ -63,7 +73,9 @@ export default defineConfig({
   //   ? '/site_root' : undefined,
 
   integrations: [
-    tailwind(),
+    tailwind({ configFile: twConfig }),
+    // tailwindConfigViewer(twViewer),
+    tailwindConfigViewer(twViewer),
     mdx(),
     sitemap(),
     icon(iconConfig),
